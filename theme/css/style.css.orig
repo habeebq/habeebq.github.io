@@ -120,15 +120,11 @@ main article header p {
   color: #999999;
   font-size: 0.82em;
 }
-@font-face {
-    font-family: "Meslo";
-    src: url("https://github.com/powerline/fonts/blob/master/Meslo/Meslo%20LG%20L%20DZ%20Regular%20for%20Powerline.otf?raw=true");
-}
 main article code,
 main article kbd,
 main article samp,
 main article pre {
-  font-family: "Meslo", 'Source Code Pro', monospace;
+  font-family: 'Source Code Pro', monospace;
 }
 main article blockquote,
 main article pre {
@@ -171,8 +167,8 @@ main article code {
   color: #c25;
   padding: 1px 3px;
   background-color: #f7f7f9;
-  border: 2px solid #e1e1e8;
-  border-radius: 5px;
+  border: 1px solid #e1e1e8;
+  border-radius: 3px;
 }
 main article .comment-count {
   font-size: .8em;
