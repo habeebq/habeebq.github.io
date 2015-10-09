@@ -27,7 +27,7 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 
 # Social widget
 SOCIAL = (('linkedin', '#'),
-          ('google', '#'),)
+          ('google-plus', '#'),)
 
 DEFAULT_PAGINATION = 10
 
