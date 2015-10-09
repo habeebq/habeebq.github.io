@@ -44,3 +44,7 @@ THEME = '/home/habeeb/workspace/pelican_themes/pelican-bootstrap3'
 BOOTSTRAP_THEME = 'cosmo'
 PYGMENTS_STYLE  = 'monokai'
 ABOUT_ME = 'Writing something about the author'
+# Header
+SHOW_ARTICLE_AUTHOR = True
+SHOW_ARTICLE_CATEGORY = True
+SHOW_DATE_MODIFIED = True
