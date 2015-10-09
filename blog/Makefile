@@ -125,6 +125,7 @@ alter: publish
 	cp -r $(OUTPUTDIR)/* ../.
 	cd ..
 	git add *
+	git add ../*
 	git commit -m "Autocommit"
 	git push origin master
 
