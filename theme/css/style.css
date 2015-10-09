@@ -1,330 +1,223 @@
-html,
 body {
-  width: 100%;
-  height: 100%;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 300;
-  line-height: 1.1;
-}
-h1 {
-  font-size: 2.4em;
-}
-h2 {
-  font-size: 2em;
-}
-h3 {
-  font-size: 1.6em;
-}
-h4 {
-  font-size: 1.36em;
-}
-h5 {
-  font-size: 1.2em;
-}
-h6 {
-  font-size: 1.1em;
-}
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #ffffff;
-  color: #242121;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.02em;
-  line-height: 1.2em;
-}
-a {
-  color: #d9411e;
-  text-decoration: none;
-}
-a:hover {
-  color: #ff5a09;
-}
-hr {
-  color: #eeeeee;
-  background-color: #eeeeee;
-  height: 1px;
-  border: none;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-img {
-  max-width: 100%;
-}
-aside {
-  background-color: #333333;
-  color: #ffffff;
-  text-align: center;
-}
-aside a {
-  color: #ffffff;
-}
-aside a:hover {
-  color: #eeeeee;
-}
-aside div {
-  padding: 20px;
-  margin: 0;
-}
-aside div img {
-  border-radius: 50%;
-  max-width: 140px;
-}
-aside div h1 {
-  margin: 15px 0 5px 0;
-}
-aside div p {
-  margin: 0 0 15px 0;
-  font-size: .92em;
-}
-aside nav ul li {
-  display: inline;
-  line-height: 1.6em;
-  font-size: 1.28em;
-  text-transform: lowercase;
-}
-main nav {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: .72em;
-  padding: 14px 0 14px 0;
-  border-bottom: #eeeeee 1px solid;
-}
-main nav a {
-  padding: 0 4px 0 4px;
-  border-right: #eeeeee 1px solid;
-}
-main nav :first-child {
-  border-left: #eeeeee 1px solid;
-}
-main .pagination {
-  margin: 4% 8% 2% 8%;
-}
-main .social-share p {
-  font-size: .8em;
-}
-main article {
-  margin: 0 8% 2% 8%;
-}
-main article header h1,
-main article header h2 {
-  margin-bottom: 0;
-}
-main article header p {
-  color: #999999;
-  font-size: 0.82em;
-}
-@font-face {
-    font-family: "Meslo";
-    src: url("https://github.com/powerline/fonts/blob/master/Meslo/Meslo%20LG%20L%20DZ%20Regular%20for%20Powerline.otf?raw=true");
-}
-main article code,
-main article kbd,
-main article samp,
-main article pre {
-  font-family: "Meslo", 'Source Code Pro', monospace;
-}
-main article blockquote,
-main article pre {
-  background-color: rgba(128, 128, 128, 0.05);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-left: 8px solid rgba(128, 128, 128, 0.075);
-  border-left-width: 10px;
-}
-main article blockquote {
-  padding: 10px 20px;
-  font-weight: 300;
-  font-size: 1.1em;
-}
-main article pre {
-  padding: 4px;
-  font-size: .9em;
-  overflow-x: auto;
-}
-main article samp {
-  white-space: pre;
-  display: block;
-  overflow-x: auto;
-}
-main article kbd {
-  padding: .1em .6em;
-  border: 1px solid rgba(63, 63, 63, 0.25);
-  box-shadow: 0 1px 0 rgba(63, 63, 63, 0.25);
-  background-color: #fff;
-  color: #333;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 0 .1em;
-  white-space: nowrap;
-  font-size: .78em;
-}
-main article code {
-  font-size: .8em;
-  white-space: nowrap;
-  color: #c25;
-  padding: 1px 3px;
-  background-color: #f7f7f9;
-  border: 2px solid #e1e1e8;
-  border-radius: 5px;
-}
-main article .comment-count {
-  font-size: .8em;
-}
-main article table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-main article table thead:first-child tr:first-child th {
-  border-top: 0;
-}
-main article table th,
-main article table td {
-  padding: 8px;
-  line-height: 20px;
-  vertical-align: top;
-  border-top: 1px solid #ddd;
-}
-main footer {
-  padding-top: 4px;
-  border-top: #eeeeee 1px solid;
-}
-main footer p {
-  margin: 2px;
-  text-align: center;
-  padding: 0 40px 0 40px;
-  color: #999999;
-  font-size: 11px;
-}
-.tag-cloud a {
-  background-color: #d9411e;
-  padding: .2em .6em .2em;
-  font-size: .74em;
-  line-height: 1;
-  color: #ffffff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
-}
-.tag-cloud a:hover {
-  background-color: #ff5a09;
-}
-a.btn {
-  background-color: #d9411e;
-  padding: .4em .6em;
-  font-size: .9em;
-  line-height: 1;
-  color: #ffffff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
-}
-a.btn:hover {
-  background-color: #ff5a09;
-}
-.center {
-  text-align: center;
-}
-.float-right {
-  float: right;
-}
-ul.list,
-ul.social {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul.list {
-  padding: 1em 0 1em 0;
-}
-ul.list li {
-  padding: 4px;
-}
-ul.social {
-  font-size: 1.6em;
-  padding-top: 20px;
-}
-ul.social li {
-  display: inline;
-}
-ul.social a:hover {
-  z-index: 2;
-  -webkit-transform: translateY(-5px);
-  transform: translateY(-5px);
-}
-ul.social a {
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  border-radius: 100%;
-  text-align: center;
-  font-size: .8em;
-  line-height: 36px;
-}
-ul.social a.sc-facebook {
-  background-color: #3e5b98;
-}
-ul.social a.sc-google {
-  background-color: #d93e2d;
-}
-ul.social a.sc-pinterest {
-  background-color: #c92619;
-}
-ul.social a.sc-linkedin {
-  background-color: #3371b7;
-}
-ul.social a.sc-rss {
-  background-color: #f26109;
-}
-ul.social a.sc-twitter {
-  background-color: #4da7de;
-}
-ul.social a.sc-youtube {
-  background-color: #e02a20;
-}
-ul.social a.sc-github,
-ul.social a.sc-github-alt {
-  background-color: #111010;
-}
-ul.social a.sc-email {
-  background-color: #578AD6;
-}
-@media screen and (min-width: 768px) {
-  aside {
-    width: 25%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-  }
-  aside div {
-    padding: 36px 18px;
-  }
-  aside div nav ul li {
-    padding: 0 !important;
+    padding-top: 70px;
+}
+
+#sidebar .list-group, #sidebar .list-group-item {
+    background-color: transparent;
+}
+
+/* for list-groups nested within a list-group-item, reset the bottom margin */
+.list-group-item > .list-group {
+    margin-bottom: 0px;
+}
+
+/* for list-group-items nested within a list-group-item, reset the bottom
+   padding of the last item, b/c the containing item has paddimg already 
+ */
+.list-group-item .list-group-item:last-child {
+    padding-bottom: 0px;
+}
+
+.list-group-item {
+    border: none;
+}
+
+.tag-0 {
+    font-size: 16pt;
+}
+
+.tag-1 {
+    font-size: 13pt;
+}
+
+.tag-2 {
+    font-size: 10pt;
+}
+
+.tag-3 {
+    font-size: 8pt;
+}
+
+.tag-4 {
+    font-size: 6pt;
+}
+
+#aboutme {
+    padding-top: 0px;
+    padding-bottom: 5px;
+    -ms-word-break: normal;
+    word-break: normal;
+}
+
+#sidebar {
+    padding-top: 0px;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+#sidebar a {
+    color: inherit;
+}
+
+.icon-label {
+    margin-left: 10px;
+}
+
+/* Example for how to control spacing between icon and label in specific
+   lists in the sidebar. To change, override in your CUSTOM_CSS           */
+#sidebar #social i {
+    margin-right: 3px;
+}
+
+a, a:hover {
+    color: inherit;
+}
+
+.entry-content a {
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+
+.entry-content a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
+
+.entry-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.entry-content figcaption, .caption {
+    font-size: small;
+    margin-bottom: 2px;
+}
+
+.summary img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.floatright, .align-right {
+    float: right;
+}
+
+.floatleft, .align-left {
+    float: left;
+}
+
+.floatcenter, .align-center {
     display: block;
-  }
-  aside div ul.social {
-    padding-top: 32px;
-  }
-  main {
-    width: 75%;
-    position: absolute;
-    top: 0;
-    left: 25%;
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
-  main article ul.list li {
-    padding: 2px;
-  }
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure.floatright, .align-right {
+    margin-left: 4px;
+}
+
+figure.floatleft, .align-left {
+    margin-right: 4px;
+}
+
+figure.floatcenter, .align-center {
+    margin-bottom: 11px;
+}
+
+.highlighttable pre {
+    /* Removes bootstrap default margin-bottom */
+    margin-bottom: 0px;
+}
+
+.highlighttable {
+    /* Adds them margin-bottom to highlightable instead of <pre> */
+    margin-bottom: 11px;
+}
+
+.highlighttable {
+    width: 100%;
+}
+
+#categories ul, #tags ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
+}
+
+.docutils.footnote td.label {
+    display: table-cell;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-align: inherit;
+    white-space: inherit;
+    border-radius: inherit;
+}
+
+.categories-timestamp {
+    color: #AAAAAA;
+    font-size: 0.9em;
+    margin-right: 10px;
+}
+
+.tagcloud li {
+    padding: 0px;
+}
+
+#banner {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: scroll;
+    background-size: cover; 
+    background-color: #C4C4C4;
+    margin: 0 0 20px;
+    padding: 70px 0; /*controls padding around inner text*/
+    position: relative;
+}
+
+#banner .copy {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    display: inline;
+    float: left;
+    max-width: 600px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#banner h1 {
+    color: #fff;
+    font-family: "HelveticaNeue-CondensedBold","Helvetica Neue CE 600 Condensed","Helvetica Neue LT Condensed","Helvetica Neue 600 Condensed","HelveticaNeue-BoldCondensed","Helvetica Neue BoldCondensed","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 60px;
+    font-stretch: condensed;
+    font-weight: 700;
+    line-height: 0.9;
+    margin: 0;
+    text-transform: uppercase;
+}
+#banner .intro {
+    color: #fff;
+    font-size: 21px;
+    line-height: 1.33;
+    opacity: 0.75;
+}
+#banner .btn, #banner .intro {
+    margin-left: 4px;
+}
+
+/* Solutions for mobile and small screens  */
+@media (max-width: 650px) {
+    #banner h1{
+       font-size: 30px; /* !important;*/
+    }
+    #banner .intro{
+        font-size: 16px;
+    }
 }
