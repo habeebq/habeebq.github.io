@@ -44,3 +44,4 @@ MENUITEMS = (('projects', '/projects.html'),
 THEME = '/home/habeeb/workspace/pelican_themes/pelican-bootstrap3'
 USE_LESS = True
 BOOTSTRAP_THEME = 'slate'
+PYGMENTS_STYLE  = 'solarizeddark'
