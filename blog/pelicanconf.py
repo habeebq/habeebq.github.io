@@ -6,7 +6,6 @@ AUTHOR = u'habeebq'
 SITENAME = u'Bitsmashing'
 SITEURL = ''
 SITEDESCRIPTION = 'Randomizing the unknown...'
-SITELOGO = u'https://habeebq.files.wordpress.com/2013/11/11412.jpg'
 
 PATH = 'content'
 
@@ -42,6 +41,6 @@ MENUITEMS = (('projects', '/projects.html'),
              ('whoami', '/about.html'))
 
 THEME = '/home/habeeb/workspace/pelican_themes/pelican-bootstrap3'
-USE_LESS = True
-BOOTSTRAP_THEME = 'slate'
+BOOTSTRAP_THEME = 'cosmo'
 PYGMENTS_STYLE  = 'solarizeddark'
+ABOUT_ME = 'Writing something about the author'
