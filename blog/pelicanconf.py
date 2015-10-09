@@ -42,5 +42,5 @@ MENUITEMS = (('projects', '/projects.html'),
 
 THEME = '/home/habeeb/workspace/pelican_themes/pelican-bootstrap3'
 BOOTSTRAP_THEME = 'cosmo'
-PYGMENTS_STYLE  = 'solarizeddark'
+PYGMENTS_STYLE  = 'monokai'
 ABOUT_ME = 'Writing something about the author'
