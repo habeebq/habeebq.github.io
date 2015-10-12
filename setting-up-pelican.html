@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Setting up Pelican - Bitsmashing</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/setting-up-pelican.html">
+
+        <meta name="author" content="habeebq" />
+        <meta name="description" content="I used to blog (when I could!) on Wordpress. Wordpress is great and throws in a huge amount of functionality for free, and also has a huge amount of support. However, blogging on wordpress.com was a bit limited as I could not (understandably) use any plugins and themes. Also ..." />
+
+        <meta property="og:site_name" content="Bitsmashing" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Setting up Pelican"/>
+        <meta property="og:url" content="/setting-up-pelican.html"/>
+        <meta property="og:description" content="I used to blog (when I could!) on Wordpress. Wordpress is great and throws in a huge amount of functionality for free, and also has a huge amount of support. However, blogging on wordpress.com was a bit limited as I could not (understandably) use any plugins and themes. Also ..."/>
+        <meta property="article:published_time" content="2015-10-12" />
+            <meta property="article:section" content="Pelican" />
+            <meta property="article:author" content="habeebq" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Bitsmashing ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Bitsmashing            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/projects.html">projects</a></li>
+                    <li><a href="/about.html">whoami</a></li>
+                        <li class="active">
+                            <a href="/category/pelican.html">Pelican</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/setting-up-pelican.html"
+                       rel="bookmark"
+                       title="Permalink to Setting up Pelican">
+                        Setting up Pelican
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+		  <div class="well well-sm">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-10-12T00:00:00+02:00"> Mon 12 October 2015</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="/author/habeebq.html"><i class="fa fa-user"></i> habeebq</a>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/pelican.html">Pelican</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+		  </div>
+                </div>
+                <p>I used to blog (when I could!) on Wordpress. Wordpress is great and throws in a huge amount of functionality for free, and also has a huge amount of support.
+However, blogging on wordpress.com was a bit limited as I could not (understandably) use any plugins and themes. Also, wordpress was a bit of overkill and also written in PHP which isnt something I am familiar with.
+So in order to go deeper, I saw a couple of blogs I liked which had a clean and minimal interface and were generated in Jekyll. So started my journey...</p>
+<p>Jekyll looked great, it had a load of themes, well supported and good traction. So I installed it, however, the installation wasnt as smooth as I had hoped it to be, partially due to my overzealous bypassing of most of the documentation. Also I had issues in installing ruby, once I got ruby I needed to install bundler, and I realized I need to update them all in different ways. I was unfamililar with ruby and I wondered if there is something similar available for Python, and hence I found <em>pelican</em>.</p>
+<p>While Pelican seemed to be less mature than Jekyll, and has less themes, it seemed much more bare, and I felt I could customize and hack it a bit more. There is also Nikola which looks amazing too, but it seemed it requires a bit more support, however it had a similar structure to Jekyll so it must be a good framework too.</p>
+<p>[http://blog.getpelican.com/]
+[https://getnikola.com/]
+[https://jekyllrb.com/]</p>
+<p>Never having done web front end it was a bit of a curve for me (and still is) to figure out, but things like jinja, css, bootstrap werent too bad, but I've had to figure things out.</p>
+<p>Installing Pelican was easy and editing the pelicanconf.py to set things up was pretty smooth. What I needed to figure out was how to get both the blog on version control and the blog on github static pages at the same time in a single commit. I eventually settled on a structure where I generate the blog static files in a lower directory (habeebq.github.io) and save the blog content, templates and script in a directory called blog within that. This allows me to update the site in a single commit.</p>
+<p>Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin bootstrapify [https://github.com/ingwinlu/pelican-bootstrapify]. There is a huge list of themes here [https://github.com/getpelican/pelican-themes]</p>
+<p>Besides I am coming to grips with markdown, I hope to be able to comment all my code in markdown and generate a readable beautified document from it.</p>
+<p>I also had to figure out that to get syntax highlighting to work, the code block needs to be indented atleast once.</p>
+<p>Now that I type this, it seems I havent done much, but im sure it took my a bit of effort to get my flow running, but i think im almost there. Just need to import my existing blog in here and see how it goes.</p>
+<p>As an example here is my current pelicanconf.py</p>
+<p>=====
+<a href="http://www.google.com">first link</a>
+Reference links [second link][1]</p>
+<div class="highlight"><pre>[1]: http://www.google.com
+</pre></div>
+<h1>Quotes</h1>
+<p>This guy said:</p>
+<blockquote>
+<p>Hello to you all</p>
+</blockquote>
+<h1>Tables</h1>
+<table class="table table-hover table-striped">
+<thead>
+<tr>
+<th>Header</th>
+<th>Header2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content1</td>
+<td>Content2</td>
+</tr>
+</tbody>
+</table>
+<p>Is this <code>monospaced</code> looking nice?</p>
+<p>random block of text</p>
+<table class="table highlighttable table-striped table-hover"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">"This is python"</span><span class="p">)</span>
+
+<span class="p">:::</span><span class="n">python</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"This is also python"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+    <p>
+        <strong>About habeebq</strong><br/>
+        Writing something about the author
+    </p>
+</div>
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="#"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+                <li class="list-group-item"><a href="#"><i class="fa fa-google-plus-square fa-lg"></i> google-plus</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jinja.pocoo.org" target="_blank">
+                Jinja2
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 habeebq
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>
