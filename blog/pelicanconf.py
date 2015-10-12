@@ -40,7 +40,7 @@ MAIN_MENU = True
 MENUITEMS = (('projects', '/projects.html'),
              ('whoami', '/about.html'))
 
-THEME = 'pelican-bootstrap3'
+THEME = '/home/habeeb/workspace/habeebq.github.io/blog/pelican-bootstrap3'
 BOOTSTRAP_THEME = 'cosmo'
 PYGMENTS_STYLE  = 'monokai'
 ABOUT_ME = 'Writing something about the author'
