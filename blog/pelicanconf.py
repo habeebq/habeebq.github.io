@@ -49,5 +49,5 @@ SHOW_ARTICLE_AUTHOR = True
 SHOW_ARTICLE_CATEGORY = True
 SHOW_DATE_MODIFIED = True
 
-PLUGIN_PATHS = ['/user/habeeb/workspace/pelican_plugins']
+PLUGIN_PATHS = ['/home/habeeb/workspace/pelican_plugins/pelican-bootstrapify']
 PLUGINS = ['bootstrapify']
