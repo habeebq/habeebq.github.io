@@ -48,3 +48,6 @@ ABOUT_ME = 'Writing something about the author'
 SHOW_ARTICLE_AUTHOR = True
 SHOW_ARTICLE_CATEGORY = True
 SHOW_DATE_MODIFIED = True
+
+PLUGIN_PATHS = ['/user/workspace/pelican_plugins']
+PLUGINS = ['pelican-bootstrapify']
