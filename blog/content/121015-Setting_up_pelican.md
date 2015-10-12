@@ -31,9 +31,9 @@ As an example here is my current pelicanconf.py
 
 =====
 [first link](http://www.google.com)
-Reference links [second link][1]
+Reference links [second link][id]
 
-	[1]: http://www.google.com
+[id]: http://www.google.com
 
 Quotes
 ======

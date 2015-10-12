@@ -16,9 +16,7 @@ So in order to go deeper, I saw a couple of blogs I liked which had a clean and 
 &lt;p&gt;As an example here is my current pelicanconf.py&lt;/p&gt;
 &lt;p&gt;=====
 &lt;a href="http://www.google.com"&gt;first link&lt;/a&gt;
-Reference links [second link][1]&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;[1]: http://www.google.com
-&lt;/pre&gt;&lt;/div&gt;
+Reference links &lt;a href="http://www.google.com"&gt;second link&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;Quotes&lt;/h1&gt;
 &lt;p&gt;This guy said:&lt;/p&gt;
 &lt;blockquote&gt;
