@@ -50,4 +50,4 @@ SHOW_ARTICLE_CATEGORY = True
 SHOW_DATE_MODIFIED = True
 
 PLUGIN_PATHS = ['/user/workspace/pelican_plugins']
-PLUGINS = ['pelican-bootstrapify']
+PLUGINS = ['bootstrapify']
