@@ -11,9 +11,9 @@ Jekyll looked great, it had a load of themes, well supported and good traction. 
 
 While Pelican seemed to be less mature than Jekyll, and has less themes, it seemed much more bare, and I felt I could customize and hack it a bit more. There is also Nikola which looks amazing too, but it seemed it requires a bit more support, however it had a similar structure to Jekyll so it must be a good framework too.
 
-[http://blog.getpelican.com/]
-[https://getnikola.com/]
-[https://jekyllrb.com/]
+[id_pel][http://blog.getpelican.com/]
+[id_nik][https://getnikola.com/]
+[id_jek][https://jekyllrb.com/]
 
 Never having done web front end it was a bit of a curve for me (and still is) to figure out, but things like jinja, css, bootstrap werent too bad, but I've had to figure things out.
 
@@ -46,7 +46,7 @@ Header  | Header2
 ------- | ------
 Content1| Content2
 
-
+https://github.com/getpelican/pelican-themes
 
 
 Is this `monospaced` looking nice?
