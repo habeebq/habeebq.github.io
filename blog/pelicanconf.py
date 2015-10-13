@@ -42,7 +42,7 @@ MENUITEMS = (('projects', '/projects.html'),
 
 THEME = '/home/habeeb/workspace/habeebq.github.io/blog/pelican-bootstrap3'
 #BOOTSTRAP_THEME = 'cosmo'
-BOOTSTRAP_THEME = 'cosmo-mod'
+BOOTSTRAP_THEME = 'cosmo'
 PYGMENTS_STYLE  = 'monokai'
 ABOUT_ME = 'Writing something about the author'
 # Header
@@ -53,3 +53,5 @@ SHOW_DATE_MODIFIED = True
 # Fixing the tables formatting
 PLUGIN_PATHS = ['/home/habeeb/workspace/pelican_plugins/pelican-bootstrapify']
 PLUGINS = ['bootstrapify']
+# Bootstrap extra css
+CUSTOM_CSS = 'theme/css/custom.css'
