@@ -55,3 +55,4 @@ PLUGIN_PATHS = ['/home/habeeb/workspace/pelican_plugins/pelican-bootstrapify']
 PLUGINS = ['bootstrapify']
 # Bootstrap extra css
 CUSTOM_CSS = 'theme/css/custom.css'
+GOOGLEFONT = 'https://fonts.googleapis.com/css?family=Source+Sans+Pro'

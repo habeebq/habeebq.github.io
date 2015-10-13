@@ -81,6 +81,9 @@
     {% if SHARIFF %}
         <link href="{{ SITEURL }}/theme/css/shariff/shariff.min.css" rel="stylesheet">
     {% endif %}
+    {% if GOOGLEFONT %}
+	<link href="{{ GOOGLEFONT }}" rel="stylesheet" type="text/css">
+    {% endif %}
 
     {% if FEED_ALL_ATOM %}
         <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
