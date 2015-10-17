@@ -3,3 +3,10 @@ body {
     font-size: 17px;
     line-height: 1.628571;
 }
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 150px;
+    height: 150px;
+    padding-top: 0;
+}
