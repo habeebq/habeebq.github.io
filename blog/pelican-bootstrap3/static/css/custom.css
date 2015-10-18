@@ -43,3 +43,9 @@ ul.nav li a:hover, ul.nav li a:active {
 ul.nav li.active a {
     color: #3E3075;
 }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
