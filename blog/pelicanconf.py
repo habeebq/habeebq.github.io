@@ -44,7 +44,10 @@ THEME = '/home/habeeb/workspace/habeebq.github.io/blog/pelican-bootstrap3'
 #BOOTSTRAP_THEME = 'cosmo'
 BOOTSTRAP_THEME = 'cosmo'
 PYGMENTS_STYLE  = 'monokai'
-ABOUT_ME = 'Writing something about the author'
+#SIDEBAR
+#Turn off ABOUT_ME by not setting it
+#ABOUT_ME = 'Writing something about the author'
+HIDE_SIDEBAR = True
 # Header
 SHOW_ARTICLE_AUTHOR = True
 SHOW_ARTICLE_CATEGORY = True
