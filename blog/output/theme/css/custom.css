@@ -1,8 +1,8 @@
-body {
+/* body {
     font-family: "Source Sans Pro","Helvetica Neue","Open Sans",Helvetica,Arial,sans-serif;
     font-size: 17px;
     line-height: 1.628571;
-}
+}*/
 
 .navbar-brand,
 .navbar-nav li a {
@@ -31,21 +31,3 @@ body {
 .navbar .navbar-nav>.dropdown>a:hover .caret { border-top-color: #FFFFFF}
 .navbar .navbar-nav>.dropdown>a .caret { border-bottom-color: #999999}
 .navbar .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #FFFFFF}
-
-ul.nav li a, ul.nav li a:visited {
-    color: #6B53CA;
-}
-
-ul.nav li a:hover, ul.nav li a:active {
-    color: #3E3075;
-}
-
-ul.nav li.active a {
-    color: #3E3075;
-}
-
-@media (min-width: 1200px) {
-  .container {
-    width: 670px;
-  }
-}
