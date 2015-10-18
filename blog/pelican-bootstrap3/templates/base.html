@@ -108,7 +108,9 @@
             </button>
             <a href="{{ SITEURL }}/" class="navbar-brand">
                 {% if SITELOGO %}<img src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
-                {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
+		<b>
+                  {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
+		</b>
             </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
