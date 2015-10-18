@@ -115,8 +115,8 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                {% for title, link in MENUITEMS %}
-                    <li><a href="{{ link }}">{{ title }}</a></li>
+                {% for title, link, icon in MENUITEMS %}
+                    <li><a href="{{ link }}">{{ title }}<i class="fa {{ icon }}"></i> </a></li>
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
                     {% for p in PAGES %}
