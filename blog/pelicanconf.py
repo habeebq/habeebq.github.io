@@ -42,7 +42,7 @@ MENUITEMS = (('projects', '/projects.html'),
 
 THEME = '/home/habeeb/workspace/habeebq.github.io/blog/pelican-bootstrap3'
 #BOOTSTRAP_THEME = 'cosmo'
-BOOTSTRAP_THEME = 'cosmo'
+BOOTSTRAP_THEME = 'readable'
 PYGMENTS_STYLE  = 'monokai'
 #SIDEBAR
 #Turn off ABOUT_ME by not setting it
