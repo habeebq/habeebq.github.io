@@ -32,7 +32,7 @@
 .navbar .navbar-nav>.dropdown>a .caret { border-bottom-color: #999999}
 .navbar .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #FFFFFF}
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
     .container{
         max-width: 670px;
     }
