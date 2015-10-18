@@ -115,6 +115,8 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Blogroll</span></a></li>
+
                 {% for title, link, icon in MENUITEMS %}
                     <li><a href="{{ link }}"> <i class="fa fa-{{ icon }}"></i>  {{ title }}</a></li>
                 {% endfor %}
@@ -141,7 +143,6 @@
                 </form></span>
               </li>
             {% endif %}
-              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
