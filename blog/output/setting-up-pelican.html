@@ -107,50 +107,132 @@ BITSMASHING		</b>
                 <p>I used to blog (when I could!) on Wordpress. Wordpress is great and throws in a huge amount of functionality for free, and also has a huge amount of support.
 However, blogging on wordpress.com was a bit limited as I could not (understandably) use any plugins and themes. Also, wordpress was a bit of overkill and also written in PHP which isnt something I am familiar with.
 So in order to go deeper, I saw a couple of blogs I liked which had a clean and minimal interface and were generated in Jekyll. So started my journey...</p>
-<p>Jekyll looked great, it had a load of themes, well supported and good traction. So I installed it, however, the installation wasnt as smooth as I had hoped it to be, partially due to my overzealous bypassing of most of the documentation. Also I had issues in installing ruby, once I got ruby I needed to install bundler, and I realized I need to update them all in different ways. I was unfamililar with ruby and I wondered if there is something similar available for Python, and hence I found <em>pelican</em>.</p>
+<p><a href="https://jekyllrb.com/">Jekyll</a> looked great, it had a load of themes, well supported and good traction. So I installed it, however, the installation wasnt as smooth as I had hoped it to be, partially due to my overzealous bypassing of most of the documentation. Also I had issues in installing ruby, once I got ruby I needed to install bundler, and I realized I need to update them all in different ways. I was unfamililar with ruby and I wondered if there is something similar available for <code>Python</code>, and hence I found <a href="http://blog.getpelican.com/">Pelican</a>.</p>
 <p>While <a href="http://blog.getpelican.com/">Pelican</a> seemed to be less mature than <a href="https://jekyllrb.com/">Jekyll</a>, and has less themes, it seemed much more bare, and I felt I could customize and hack it a bit more. There is also <a href="https://getnikola.com/">Nikola</a> which looks amazing too, but it seemed it requires a bit more support, however it had a similar structure to Jekyll so it must be a good framework too.</p>
 <p>Never having done web front end it was a bit of a curve for me (and still is) to figure out, but things like jinja, css, bootstrap werent too bad, but I've had to figure things out.</p>
 <p>Installing Pelican was easy and editing the pelicanconf.py to set things up was pretty smooth. What I needed to figure out was how to get both the blog on version control and the blog on github static pages at the same time in a single commit. I eventually settled on a structure where I generate the blog static files in a lower directory (habeebq.github.io) and save the blog content, templates and script in a directory called blog within that. This allows me to update the site in a single commit.</p>
-<p>Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin bootstrapify [https://github.com/ingwinlu/pelican-bootstrapify]. There is a huge list of themes here [https://github.com/getpelican/pelican-themes]</p>
+<p>Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin (bootstrapify)[https://github.com/ingwinlu/pelican-bootstrapify]. There is a huge list of (themes here)[https://github.com/getpelican/pelican-themes]</p>
 <p>Besides I am coming to grips with markdown, I hope to be able to comment all my code in markdown and generate a readable beautified document from it.</p>
 <p>I also had to figure out that to get syntax highlighting to work, the code block needs to be indented atleast once.</p>
 <p>Now that I type this, it seems I havent done much, but im sure it took my a bit of effort to get my flow running, but i think im almost there. Just need to import my existing blog in here and see how it goes.</p>
-<p>As an example here is my current pelicanconf.py</p>
-<p>=====
-<a href="http://www.google.com">first link</a></p>
-<p><strong><a href="http://wwwo.google.com">second link</a></strong></p>
-<p><code>[third link](http:://www.gogogole.com)</code></p>
-<p>Reference links <a href="http://www.google.com">second link</a></p>
-<h1>Quotes</h1>
-<p>This guy said:</p>
-<blockquote>
-<p>Hello to you all</p>
-</blockquote>
-<h1>Tables</h1>
-<table class="table table-hover table-striped">
-<thead>
-<tr>
-<th>Header</th>
-<th>Header2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Content1</td>
-<td>Content2</td>
-</tr>
-</tbody>
-</table>
-<p>https://github.com/getpelican/pelican-themes</p>
-<p>Is this <code>monospaced</code> looking nice?</p>
-<p>random block of text</p>
-<table class="table highlighttable table-striped table-hover"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">"This is python"</span><span class="p">)</span>
+<p>As an example here is my current <code>pelicanconf.py</code></p>
+<table class="table highlighttable table-striped table-hover"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*- #</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 
-<span class="p">:::</span><span class="n">python</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"This is also python"</span><span class="p">)</span>
+<span class="n">AUTHOR</span> <span class="o">=</span> <span class="s">u'habeebq'</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">u'BITSMASHING'</span>
+<span class="n">SITEURL</span> <span class="o">=</span> <span class="s">''</span>
+<span class="n">SITEDESCRIPTION</span> <span class="o">=</span> <span class="s">'Randomizing the unknown...'</span>
+
+<span class="n">PATH</span> <span class="o">=</span> <span class="s">'content'</span>
+
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s">'Europe/Paris'</span>
+
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s">u'en'</span>
+
+<span class="c"># Feed generation is usually not desired when developing</span>
+<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_RSS</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c"># Blogroll</span>
+<span class="n">LINKS</span> <span class="o">=</span> <span class="p">((</span><span class="s">'Pelican'</span><span class="p">,</span> <span class="s">'http://getpelican.com/'</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">'Python.org'</span><span class="p">,</span> <span class="s">'http://python.org/'</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">'Jinja2'</span><span class="p">,</span> <span class="s">'http://jinja.pocoo.org'</span><span class="p">))</span>
+
+<span class="c"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s">'linkedin'</span><span class="p">,</span> <span class="s">'#'</span><span class="p">),</span>
+          <span class="p">(</span><span class="s">'google-plus'</span><span class="p">,</span> <span class="s">'#'</span><span class="p">),)</span>
+
+<span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">MD_EXTENSIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'codehilite(css_class=highlight)'</span><span class="p">,</span><span class="s">'extra'</span><span class="p">]</span>
+<span class="n">LOAD_CONTENT_CACHE</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">MAIN_MENU</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">MENUITEMS</span> <span class="o">=</span> <span class="p">((</span><span class="s">'projects'</span><span class="p">,</span> <span class="s">'/projects.html'</span><span class="p">,</span> <span class="s">'code-fork'</span><span class="p">),</span>
+             <span class="p">(</span><span class="s">'whoami'</span><span class="p">,</span> <span class="s">'/about.html'</span><span class="p">,</span> <span class="s">'user'</span><span class="p">))</span>
+
+<span class="n">THEME</span> <span class="o">=</span> <span class="s">'/home/habeeb/workspace/habeebq.github.io/blog/pelican-bootstrap3'</span>
+<span class="n">BOOTSTRAP_THEME</span> <span class="o">=</span> <span class="s">'readable'</span>
+<span class="n">PYGMENTS_STYLE</span>  <span class="o">=</span> <span class="s">'monokai'</span>
+
+<span class="c">#Navbar</span>
+<span class="n">DISPLAY_CATEGORIES_ON_MENU</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c">#SIDEBAR</span>
+<span class="n">HIDE_SIDEBAR</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c"># Article Header</span>
+<span class="n">SHOW_ARTICLE_AUTHOR</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">SHOW_ARTICLE_CATEGORY</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">SHOW_DATE_MODIFIED</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c"># Fixing the tables formatting</span>
+<span class="n">PLUGIN_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'/home/habeeb/workspace/pelican_plugins/pelican-bootstrapify'</span><span class="p">]</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'bootstrapify'</span><span class="p">]</span>
+<span class="c"># Bootstrap extra css</span>
+<span class="n">CUSTOM_CSS</span> <span class="o">=</span> <span class="s">'theme/css/custom.css'</span>
+<span class="n">GOOGLEFONT</span> <span class="o">=</span> <span class="s">'https://fonts.googleapis.com/css?family=Source+Sans+Pro'</span>
 </pre></div>
 </td></tr></table>
             </div>
