@@ -34,7 +34,7 @@
 
 @media (min-width: 1000px) {
     .container{
-        max-width: 770px;
+        max-width: 850px;
     }
 }
 
@@ -48,4 +48,11 @@ ul.nav li a:hover, ul.nav li a:active {
 
 ul.nav li.active a {
     color: #6B53C !important;
+}
+/* Code tags to be made purple!*/
+code {
+  /*font-size: 32px;*/
+  color: #6B53CA;
+  background: #D9D3F2;
+  border-radius:10px;
 }
