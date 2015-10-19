@@ -56,3 +56,11 @@ code {
     background: #F1F0F7;
     border-radius:5px;
 }
+
+/* Code tags to be made purple!*/
+a {
+  /*font-size: 32px;*/
+    color: #523AB0;
+    background: #F1F0F7;
+    border-radius:5px;
+}
