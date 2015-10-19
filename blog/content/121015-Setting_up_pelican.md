@@ -9,11 +9,12 @@ So in order to go deeper, I saw a couple of blogs I liked which had a clean and 
 
 Jekyll looked great, it had a load of themes, well supported and good traction. So I installed it, however, the installation wasnt as smooth as I had hoped it to be, partially due to my overzealous bypassing of most of the documentation. Also I had issues in installing ruby, once I got ruby I needed to install bundler, and I realized I need to update them all in different ways. I was unfamililar with ruby and I wondered if there is something similar available for Python, and hence I found *pelican*.
 
-While Pelican seemed to be less mature than Jekyll, and has less themes, it seemed much more bare, and I felt I could customize and hack it a bit more. There is also Nikola which looks amazing too, but it seemed it requires a bit more support, however it had a similar structure to Jekyll so it must be a good framework too.
+While [Pelican] seemed to be less mature than [Jekyll], and has less themes, it seemed much more bare, and I felt I could customize and hack it a bit more. There is also [Nikola] which looks amazing too, but it seemed it requires a bit more support, however it had a similar structure to Jekyll so it must be a good framework too.
 
-	[id_pel][http://blog.getpelican.com/]
-	[id_nik][https://getnikola.com/]
-	[id_jek][https://jekyllrb.com/]
+[id_pel]: http://blog.getpelican.com/
+[nikola]: https://getnikola.com/
+[jekyll]: https://jekyllrb.com/
+[pelican]: http://blog.getpelican.com/
 
 Never having done web front end it was a bit of a curve for me (and still is) to figure out, but things like jinja, css, bootstrap werent too bad, but I've had to figure things out.
 
