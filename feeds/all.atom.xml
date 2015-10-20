@@ -6,70 +6,12 @@ So in order to go deeper, I saw a couple of blogs I liked which had a clean and 
 &lt;p&gt;While &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; seemed to be less mature than &lt;a href="https://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;, and has less themes, it seemed much more bare, and I felt I could customize and hack it a bit more. There is also &lt;a href="https://getnikola.com/"&gt;Nikola&lt;/a&gt; which looks amazing too, but it seemed it requires a bit more support, however it had a similar structure to Jekyll so it must be a good framework too.&lt;/p&gt;
 &lt;p&gt;Never having done web front end it was a bit of a curve for me (and still is) to figure out, but things like jinja, css, bootstrap werent too bad, but I've had to figure things out.&lt;/p&gt;
 &lt;p&gt;Installing Pelican was easy and editing the pelicanconf.py to set things up was pretty smooth. What I needed to figure out was how to get both the blog on version control and the blog on github static pages at the same time in a single commit. I eventually settled on a structure where I generate the blog static files in a lower directory (habeebq.github.io) and save the blog content, templates and script in a directory called blog within that. This allows me to update the site in a single commit.&lt;/p&gt;
-&lt;p&gt;Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin (bootstrapify)[https://github.com/ingwinlu/pelican-bootstrapify]. There is a huge list of (themes here)[https://github.com/getpelican/pelican-themes]&lt;/p&gt;
+&lt;p&gt;Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin &lt;a href="https://github.com/ingwinlu/pelican-bootstrapify"&gt;bootstrapify&lt;/a&gt;. There is a huge list of &lt;a href="https://github.com/getpelican/pelican-themes"&gt;themes here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Besides I am coming to grips with markdown, I hope to be able to comment all my code in markdown and generate a readable beautified document from it.&lt;/p&gt;
 &lt;p&gt;I also had to figure out that to get syntax highlighting to work, the code block needs to be indented atleast once.&lt;/p&gt;
 &lt;p&gt;Now that I type this, it seems I havent done much, but im sure it took my a bit of effort to get my flow running, but i think im almost there. Just need to import my existing blog in here and see how it goes.&lt;/p&gt;
 &lt;p&gt;As an example here is my current &lt;code&gt;pelicanconf.py&lt;/code&gt;&lt;/p&gt;
-&lt;table class="table highlighttable table-striped table-hover"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*- #&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*- #&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;unicode_literals&lt;/span&gt;
 
 &lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u'habeebq'&lt;/span&gt;
@@ -128,22 +70,14 @@ So in order to go deeper, I saw a couple of blogs I liked which had a clean and 
 &lt;span class="c"&gt;# Bootstrap extra css&lt;/span&gt;
 &lt;span class="n"&gt;CUSTOM_CSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'theme/css/custom.css'&lt;/span&gt;
 &lt;span class="n"&gt;GOOGLEFONT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'https://fonts.googleapis.com/css?family=Source+Sans+Pro'&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary></entry><entry><title>My_First_markdown</title><link href="/my_first_markdown.html" rel="alternate"></link><updated>2015-10-06T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2015-10-06:my_first_markdown.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;&lt;span class="k"&gt;pass&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;&lt;span class="k"&gt;pass&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;Headers use hashes&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>My First Markdown</title><link href="/my-first-markdown.html" rel="alternate"></link><updated>2015-10-06T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2015-10-06:my-first-markdown.html</id><summary type="html">&lt;p&gt;Headers use hashes&lt;/p&gt;
 &lt;h2&gt;More hashes make the header smaller&lt;/h2&gt;
 &lt;h3&gt;probably uptil we have six&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt; This is a markdown file &lt;/em&gt;&lt;/strong&gt;
-&lt;strong&gt; Lets see how the headers work &lt;/strong&gt;
-and the &lt;em&gt;emphasis&lt;/em&gt;
-== what does equals do ==&lt;/p&gt;
 &lt;h1&gt;Links&lt;/h1&gt;
 &lt;p&gt;&lt;a href="http://www.google.com"&gt;first link&lt;/a&gt;
-Reference links [second link][1]
-    [1]: http://www.google.com&lt;/p&gt;
+Reference links [second link][1]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;[1]: http://www.google.com
+&lt;/pre&gt;&lt;/div&gt;
 &lt;h1&gt;Quotes&lt;/h1&gt;
 &lt;p&gt;This guy said:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -165,13 +99,6 @@ Reference links [second link][1]
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Is this &lt;code&gt;monospaced&lt;/code&gt; looking nice?&lt;/p&gt;
-&lt;p&gt;random block of text&lt;/p&gt;
-&lt;table class="table highlighttable table-striped table-hover"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"This is python"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="p"&gt;:::&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"This is also python"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;table class="table highlighttable table-striped table-hover"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"This is python"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary></entry></feed>

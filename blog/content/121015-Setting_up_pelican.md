@@ -20,7 +20,7 @@ Never having done web front end it was a bit of a curve for me (and still is) to
 
 Installing Pelican was easy and editing the pelicanconf.py to set things up was pretty smooth. What I needed to figure out was how to get both the blog on version control and the blog on github static pages at the same time in a single commit. I eventually settled on a structure where I generate the blog static files in a lower directory (habeebq.github.io) and save the blog content, templates and script in a directory called blog within that. This allows me to update the site in a single commit.
 
-Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin (bootstrapify)[https://github.com/ingwinlu/pelican-bootstrapify]. There is a huge list of (themes here)[https://github.com/getpelican/pelican-themes]
+Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin [bootstrapify](https://github.com/ingwinlu/pelican-bootstrapify). There is a huge list of [themes here](https://github.com/getpelican/pelican-themes)
 
 Besides I am coming to grips with markdown, I hope to be able to comment all my code in markdown and generate a readable beautified document from it.
 
@@ -30,7 +30,7 @@ Now that I type this, it seems I havent done much, but im sure it took my a bit 
 
 As an example here is my current `pelicanconf.py`
 
-    #!python
+    :::python
     # -*- coding: utf-8 -*- #
 	from __future__ import unicode_literals
 

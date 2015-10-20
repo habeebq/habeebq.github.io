@@ -112,70 +112,12 @@ So in order to go deeper, I saw a couple of blogs I liked which had a clean and 
 <p>While <a href="http://blog.getpelican.com/">Pelican</a> seemed to be less mature than <a href="https://jekyllrb.com/">Jekyll</a>, and has less themes, it seemed much more bare, and I felt I could customize and hack it a bit more. There is also <a href="https://getnikola.com/">Nikola</a> which looks amazing too, but it seemed it requires a bit more support, however it had a similar structure to Jekyll so it must be a good framework too.</p>
 <p>Never having done web front end it was a bit of a curve for me (and still is) to figure out, but things like jinja, css, bootstrap werent too bad, but I've had to figure things out.</p>
 <p>Installing Pelican was easy and editing the pelicanconf.py to set things up was pretty smooth. What I needed to figure out was how to get both the blog on version control and the blog on github static pages at the same time in a single commit. I eventually settled on a structure where I generate the blog static files in a lower directory (habeebq.github.io) and save the blog content, templates and script in a directory called blog within that. This allows me to update the site in a single commit.</p>
-<p>Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin (bootstrapify)[https://github.com/ingwinlu/pelican-bootstrapify]. There is a huge list of (themes here)[https://github.com/getpelican/pelican-themes]</p>
+<p>Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin <a href="https://github.com/ingwinlu/pelican-bootstrapify">bootstrapify</a>. There is a huge list of <a href="https://github.com/getpelican/pelican-themes">themes here</a></p>
 <p>Besides I am coming to grips with markdown, I hope to be able to comment all my code in markdown and generate a readable beautified document from it.</p>
 <p>I also had to figure out that to get syntax highlighting to work, the code block needs to be indented atleast once.</p>
 <p>Now that I type this, it seems I havent done much, but im sure it took my a bit of effort to get my flow running, but i think im almost there. Just need to import my existing blog in here and see how it goes.</p>
 <p>As an example here is my current <code>pelicanconf.py</code></p>
-<table class="table highlighttable table-striped table-hover"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*- #</span>
+<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*- #</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 
 <span class="n">AUTHOR</span> <span class="o">=</span> <span class="s">u'habeebq'</span>
@@ -235,7 +177,6 @@ So in order to go deeper, I saw a couple of blogs I liked which had a clean and 
 <span class="n">CUSTOM_CSS</span> <span class="o">=</span> <span class="s">'theme/css/custom.css'</span>
 <span class="n">GOOGLEFONT</span> <span class="o">=</span> <span class="s">'https://fonts.googleapis.com/css?family=Source+Sans+Pro'</span>
 </pre></div>
-</td></tr></table>
             </div>
             <!-- /.entry-content -->
         </article>
