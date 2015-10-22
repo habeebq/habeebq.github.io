@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Customizing the blog - BITSMASHING</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/customizing-the-blog.html">
+
+        <meta name="author" content="habeebq" />
+        <meta name="description" content="So I&#39;m no front-end developer. In the past I&#39;ve tried to understand CSS, but it always felt alien to me. However, hearing and reading about it again and again, possibly rubbed it on to me a little bit. Without CSS we cannot alter the looks of the blog ..." />
+
+        <meta property="og:site_name" content="BITSMASHING" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Customizing the blog"/>
+        <meta property="og:url" content="/customizing-the-blog.html"/>
+        <meta property="og:description" content="So I&#39;m no front-end developer. In the past I&#39;ve tried to understand CSS, but it always felt alien to me. However, hearing and reading about it again and again, possibly rubbed it on to me a little bit. Without CSS we cannot alter the looks of the blog ..."/>
+        <meta property="article:published_time" content="2015-10-12" />
+            <meta property="article:section" content="Pelican" />
+            <meta property="article:author" content="habeebq" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.readable.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link href="/theme/css/custom.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="BITSMASHING ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+		<b>
+BITSMASHING		</b>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">blog</span></a></li>
+
+                    <li><a href="/projects.html"> <i class="fa fa-code-fork"></i>  projects</a></li>
+                    <li><a href="/about.html"> <i class="fa fa-user"></i>  whoami</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/customizing-the-blog.html"
+                       rel="bookmark"
+                       title="Permalink to Customizing the blog"
+		       class="page-header">
+                        Customizing the blog
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+		  <div class="well well-sm">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-10-12T00:00:00+02:00"> Mon 12 October 2015</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="/author/habeebq.html"><i class="fa fa-user"></i> habeebq</a>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/pelican.html">Pelican</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+		  </div>
+                </div>
+                <p>So I'm no front-end developer. In the past I've tried to understand CSS, but it always felt alien to me. However, hearing and reading about it again and again, possibly rubbed it on to me a little bit. Without CSS we cannot alter the looks of the blog very easily, but using an overriding <code>custom.css</code> file, we can override some of the default and make it more personalized.</p>
+<p>I started off with the <code>pelican-bootstrap3</code> theme by <a href="https://github.com/DandyDev/pelican-bootstrap3">DandyDev</a>. This guy has put in a lot of effort to port the theme properly to <code>Pelican</code> with some extensions. Its a great theme and offers a lot out of the box, but I really wanted to make it look different. The theme also comes with a lot of pre-minified CSS (just CSS compacted for transport) from Thomas Park's <a href="http://bootswatch.com/">Bootswatch</a>. This contained a lot of different and interesting styles for bootstrap.</p>
+<p>Lets talk about first, what is bootstrap. Bootstrap is a front-end framework originating from Twitter, that basically has a library of component customisations. The HTML actually defines these components, and assigns each object a class. The bootstrap css, when loaded then styles all of these components. This framework contains a large number of component customisations like grids and tables etc. The main aim, is to make the website <strong>responsive</strong>. This means it loads and scales properly on mobile, tablets and desktops etc. If you see a bootstrap based website, it will look good on any screen size, and will act a bit differently on them, for e.g. the menu and navbar acts differently on mobile vs desktop.</p>
+<p><a href="http://bootswatch.com/">Bootswatch</a> hosts some nice looking free themes for bootstrap. These mainly change the color schemes etc. Also, fortunately, the <code>pelican-bootstrap3</code> comes with these themes already built-in! You do not need to add them yourself.</p>
+<p>So, now if we want to use the bootstrap theme in Pelican, we can clone the <a href="https://github.com/DandyDev/pelican-bootstrap3">repo</a> and follow the instructions there:</p>
+<div class="highlight"><pre>git clone https://github.com/DandyDev/pelican-bootstrap3.git
+</pre></div>
+<p>And then in your <code>pelicanconf.py</code> point to this theme, and also point to any bootstrap theme you like from bootswatch (or you can see all the css options in <code>pelican-bootstrap3/static/css/bootstrap.*.min.css</code>)</p>
+<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="s">'/home/habeeb/workspace/habeebq.github.io/blog/pelican-bootstrap3'</span>
+<span class="n">BOOTSTRAP_THEME</span> <span class="o">=</span> <span class="s">'readable'</span>
+<span class="n">PYGMENTS_STYLE</span>  <span class="o">=</span> <span class="s">'monokai'</span>
+</pre></div>
+<p>Ok, so now it looks like a normal bootstrap theme with a navbar and sidebar etc.</p>
+<p>Lets start with easy stuff.</p>
+<p>I turned the sidebar off and removed categories from the Navbar:</p>
+<div class="highlight"><pre><span class="c">#Navbar</span>
+<span class="n">DISPLAY_CATEGORIES_ON_MENU</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="c">#SIDEBAR</span>
+<span class="n">HIDE_SIDEBAR</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+<p>Added some more information to the Article header (the section underneath the article title):</p>
+<div class="highlight"><pre><span class="c"># Article Header</span>
+<span class="n">SHOW_ARTICLE_AUTHOR</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">SHOW_ARTICLE_CATEGORY</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">SHOW_DATE_MODIFIED</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+<p>Since the tables werent showing properly I had to install a bootstrap plugin called <a href="https://github.com/ingwinlu/pelican-bootstrapify">pelican-bootstrapify</a>, that cleans up some of bootstraps code. It seems to replace the tags in the table, I am not yet 100% sure what its flow is. </p>
+<div class="highlight"><pre><span class="c"># Fixing the tables formatting</span>
+<span class="n">PLUGIN_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'/home/habeeb/workspace/pelican_plugins/pelican-bootstrapify'</span><span class="p">]</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'bootstrapify'</span><span class="p">]</span>
+</pre></div>
+<p>So that was most of the seemingly easy part, however it wasnt so easy when I was trying to figure it out on google and stackoverflow.</p>
+<p>Now, how to make changes to the font, colors, navbar, icons, linkcolor and jinja template modifications.</p>
+<p>Lets start with the fonts, where we used google fonts to make it easier for us. Now the font needs to be defined in the jinja template for base.html. This is in pelican-bootstrapify3/templates/base.html
+In the head section of the template we define the following. We have created a new variable called GOOGLEFONT in <code>pelicanconf.py</code></p>
+<div class="highlight"><pre>{% if GOOGLEFONT %}
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"{{ GOOGLEFONT }}"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+{% endif %}
+</pre></div>
+<p>Then in the <code>pelicanconf.py</code> we define the value of GOOGLEFONT as just the location of it. You can find this location on the Google Fonts website. The bootstrap theme we use also supports an overriding custom.css if it is defined, so we also define that here.</p>
+<div class="highlight"><pre><span class="c"># Bootstrap extra css</span>
+<span class="n">CUSTOM_CSS</span> <span class="o">=</span> <span class="s">'theme/css/custom.css'</span>
+<span class="n">GOOGLEFONT</span> <span class="o">=</span> <span class="s">'https://fonts.googleapis.com/css?family=Source+Sans+Pro'</span>
+</pre></div>
+<p>Then create a new file in pelican-bootstrap3/static/css/custom.css or wherever you feel like creating it, but make sure the path mentioned above is correct.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 habeebq
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

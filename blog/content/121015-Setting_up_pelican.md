@@ -22,7 +22,7 @@ Installing Pelican was easy and editing the pelicanconf.py to set things up was 
 
 Settling on a theme was tough, and I am still not sure. I got Flex working first (adblock was blocking out the font-awesome icons), but then i moved to pelican-bootstrap3. I modified it a bit, to add wells, and to fix markdown tables by enabling the plugin [bootstrapify](https://github.com/ingwinlu/pelican-bootstrapify). There is a huge list of [themes here](https://github.com/getpelican/pelican-themes)
 
-Besides I am coming to grips with markdown, I hope to be able to comment all my code in markdown and generate a readable beautified document from it.
+I am also coming to grips with markdown, I hope to be able to comment all my code in markdown and generate a readable beautified document from it.
 
 I also had to figure out that to get syntax highlighting to work, the code block needs to be indented atleast once.
 
