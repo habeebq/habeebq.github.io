@@ -1,5 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>BITSMASHING</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2015-10-12T00:00:00+02:00</updated><entry><title>Setting up Pelican</title><link href="/setting-up-pelican.html" rel="alternate"></link><updated>2015-10-12T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2015-10-12:setting-up-pelican.html</id><summary type="html">&lt;p&gt;I used to blog (when I could!) on Wordpress. Wordpress is great and throws in a huge amount of functionality for free, and also has a huge amount of support.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BITSMASHING</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2015-10-12T00:00:00+02:00</updated><entry><title>Customizing the blog</title><link href="/customizing-the-blog.html" rel="alternate"></link><updated>2015-10-12T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2015-10-12:customizing-the-blog.html</id><summary type="html">&lt;p&gt;So I'm no front-end developer. In the past I've tried to understand CSS, but it always felt alien to me. However, hearing and reading about it again and again, possibly rubbed it on to me a little bit. Without CSS we cannot alter the looks of the blog very easily, but using an overriding &lt;code&gt;custom.css&lt;/code&gt; file, we can override some of the default values and make it more personalized.&lt;/p&gt;
+&lt;p&gt;I started off with the &lt;code&gt;pelican-bootstrap3&lt;/code&gt; theme by &lt;a href="https://github.com/DandyDev/pelican-bootstrap3"&gt;DandyDev&lt;/a&gt;. This guy has put in a lot of effort to port the theme properly to &lt;code&gt;Pelican&lt;/code&gt; with some extensions. Its a great theme and offers a lot out of the box, but I really wanted to make it look different. The theme also comes with a lot of pre-minified CSS (just CSS compacted for transport) from Thomas Park's &lt;a href="http://bootswatch.com/"&gt;Bootswatch&lt;/a&gt;. This contained a lot of different and interesting styles for bootstrap.&lt;/p&gt;
+&lt;p&gt;Lets talk about first, what is bootstrap. Bootstrap is a front-end framework originating from Twitter, that basically has a library of component customisations. The HTML actually defines these components, and assigns each object a class. The bootstrap css, when loaded then styles all of these components. This framework contains a large number of component customisations like grids and tables etc. The main aim, is to make the website &lt;strong&gt;responsive&lt;/strong&gt;. This means it loads and scales properly on mobile, tablets and desktops etc. If you see a bootstrap based website, it will look good on any screen size, and will act a bit differently on them, for e.g. the menu and navbar acts differently on mobile vs desktop.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bootswatch.com/"&gt;Bootswatch&lt;/a&gt; hosts some nice looking free themes for bootstrap. These mainly change the color schemes etc. Also, fortunately, the &lt;code&gt;pelican-bootstrap3&lt;/code&gt; comes with these themes already built-in! You do not need to add them yourself.&lt;/p&gt;
+&lt;p&gt;So, now if we want to use the bootstrap theme in Pelican, we can clone the &lt;a href="https://github.com/DandyDev/pelican-bootstrap3"&gt;repo&lt;/a&gt; and follow the instructions there:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/DandyDev/pelican-bootstrap3.git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And then in your &lt;code&gt;pelicanconf.py&lt;/code&gt; point to this theme, and also point to any bootstrap theme you like from bootswatch (or you can see all the css options in &lt;code&gt;pelican-bootstrap3/static/css/bootstrap.*.min.css&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'/home/habeeb/workspace/habeebq.github.io/blog/pelican-bootstrap3'&lt;/span&gt;
+&lt;span class="n"&gt;BOOTSTRAP_THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'readable'&lt;/span&gt;
+&lt;span class="n"&gt;PYGMENTS_STYLE&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'monokai'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ok, so now it looks like a normal bootstrap theme with a navbar and sidebar etc.&lt;/p&gt;
+&lt;p&gt;Lets start with easy stuff.&lt;/p&gt;
+&lt;p&gt;I turned the sidebar off and removed categories from the Navbar:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#Navbar&lt;/span&gt;
+&lt;span class="n"&gt;DISPLAY_CATEGORIES_ON_MENU&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;span class="c"&gt;#SIDEBAR&lt;/span&gt;
+&lt;span class="n"&gt;HIDE_SIDEBAR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Added some more information to the Article header (the section underneath the article title):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Article Header&lt;/span&gt;
+&lt;span class="n"&gt;SHOW_ARTICLE_AUTHOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;SHOW_ARTICLE_CATEGORY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;SHOW_DATE_MODIFIED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Since the tables werent showing properly I had to install a bootstrap plugin called &lt;a href="https://github.com/ingwinlu/pelican-bootstrapify"&gt;pelican-bootstrapify&lt;/a&gt;, that cleans up some of bootstraps code. It seems to replace the tags in the table, I am not yet 100% sure what its flow is. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Fixing the tables formatting&lt;/span&gt;
+&lt;span class="n"&gt;PLUGIN_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'/home/habeeb/workspace/pelican_plugins/pelican-bootstrapify'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'bootstrapify'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So that was most of the seemingly easy part, however it wasnt so easy when I was trying to figure it out on google and stackoverflow.&lt;/p&gt;
+&lt;p&gt;Now, how to make changes to the font, colors, navbar, icons, linkcolor and jinja template modifications.&lt;/p&gt;
+&lt;h4&gt;Customizing the fonts&lt;/h4&gt;
+&lt;p&gt;Lets start with the fonts, where we used google fonts to make it easier for us. Now the font needs to be defined in the jinja template for base.html. This is in pelican-bootstrapify3/templates/base.html
+In the head section of the template we define the following. We have created a new variable called GOOGLEFONT in &lt;code&gt;pelicanconf.py&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{% if GOOGLEFONT %}
+&lt;span class="nt"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;"{{ GOOGLEFONT }}"&lt;/span&gt; &lt;span class="na"&gt;rel=&lt;/span&gt;&lt;span class="s"&gt;"stylesheet"&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text/css"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+{% endif %}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then in the &lt;code&gt;pelicanconf.py&lt;/code&gt; we define the value of GOOGLEFONT as just the location of it. You can find this location on the Google Fonts website. The bootstrap theme we use also supports an overriding custom.css if it is defined, so we also define that here.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Bootstrap extra css&lt;/span&gt;
+&lt;span class="n"&gt;CUSTOM_CSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'theme/css/custom.css'&lt;/span&gt;
+&lt;span class="n"&gt;GOOGLEFONT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'https://fonts.googleapis.com/css?family=Source+Sans+Pro'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then create a new file in pelican-bootstrap3/static/css/custom.css or wherever you feel like creating it, but make sure the path mentioned above is correct.&lt;/p&gt;
+&lt;p&gt;Ok, so we have acheived the inclusion of the font in the html header now, but we havent applied the font anywhere. We will now use the &lt;code&gt;custom.css&lt;/code&gt; file to override bootstrap's defaults. You can apply the font to any tag, in our case, we applied it to the whole body of the html.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;font-family&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"Source Sans Pro"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;"Helvetica Neue"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;"Open Sans"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Helvetica&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Arial&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="k"&gt;sans-serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;18px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;line-height&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="m"&gt;728571&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So we have changed the font to Source Sans Pro, with a couple of fallbacks. We also increased the font size and increase the line-height effectively the distance between lines.&lt;/p&gt;
+&lt;h4&gt;Customizing the Navbar style&lt;/h4&gt;
+&lt;p&gt;Next I wanted to customize the navbar i.e. the menu bar at the top of the page. Changing the height for that was easy (again in &lt;code&gt;custom.css&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nc"&gt;.navbar-brand&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+&lt;span class="nc"&gt;.navbar-nav&lt;/span&gt; &lt;span class="nt"&gt;li&lt;/span&gt; &lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;line-height&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;70px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;height&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;70px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;padding-top&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now, changing the colors of the Navbar was much harder, and I had to use an online tool to generate the CSS for that. See this &lt;a href="http://bootstrap3-menu.codedorigin.com/#sthash.RdlMZNJ4.mNUqqyEa.dpbs"&gt;link&lt;/a&gt; and paste the generated css in your &lt;code&gt;custom.css&lt;/code&gt; again.&lt;/p&gt;
+&lt;h4&gt;Font Awesome Icons in the Navbar&lt;/h4&gt;
+&lt;p&gt;Adding font-awesome icons to the Navbar requires modification of the jinja template, again we go back to our &lt;code&gt;base.html&lt;/code&gt; file. &lt;/p&gt;
+&lt;p&gt;We modify the section where MENUITEMS are being iterated over. Add the font awesome icon here (this is possibly not the best way to add the icon in terms of styling/spanning, I need to improve this):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{% for title, link, icon in MENUITEMS %}
+    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;"{{ link }}"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;i&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"fa fa-{{ icon }}"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;  {{ title }}&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+{% endfor %}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As you can see this requires an extra icon to be described in the navbar menu item section in the &lt;code&gt;pelicanconf.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;MENUITEMS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s"&gt;'projects'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'/projects.html'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'code-fork'&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+         &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'whoami'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'/about.html'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'user'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Link colors&lt;/h4&gt;
+&lt;p&gt;This next part about changing the link colors is a bit ...hmmm...not the best solution.
+The links generated by Pelican seem to all be tagged as 'a' but with no other class name. So the only way to change the link color is to change ALL the link colors sadly. &lt;/p&gt;
+&lt;p&gt;Changing the link colors&lt;/p&gt;
+&lt;p&gt;So I did something like this in my &lt;code&gt;custom.css&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;/* Code tags to be made purple!*/&lt;/span&gt;
+&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;#523AB0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Well, this also changed my header links etc, which I had to override once again to set them back to black:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nc"&gt;.page-header&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;#000000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So well, changing the link color might generate too much work. I havent found a way to add a class into it so i can customize it separately.&lt;/p&gt;
+&lt;h4&gt;Customizing the page width&lt;/h4&gt;
+&lt;p&gt;Its possible to also control how wide the page body would be. I used the following in my &lt;code&gt;custom.css&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;@media&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;min-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;1000px&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nc"&gt;.container&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;max-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;850px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To be honest I really pulled this value out as my monitor is only 1600x1200 and of that my Taskbar is on the left so causing the browser to get less pixels. I hope it doesnt really matter in the big picture!&lt;/p&gt;
+&lt;p&gt;So well, there it is, most of my customizations to the bootstrap theme for now. &lt;/p&gt;</summary></entry><entry><title>Setting up Pelican</title><link href="/setting-up-pelican.html" rel="alternate"></link><updated>2015-10-12T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2015-10-12:setting-up-pelican.html</id><summary type="html">&lt;p&gt;I used to blog (when I could!) on Wordpress. Wordpress is great and throws in a huge amount of functionality for free, and also has a huge amount of support.
 However, blogging on wordpress.com was a bit limited as I could not (understandably) use any plugins and themes. Also, wordpress was a bit of overkill and also written in PHP which isnt something I am familiar with.
 So in order to go deeper, I saw a couple of blogs I liked which had a clean and minimal interface and were generated in Jekyll. So started my journey...&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://jekyllrb.com/"&gt;Jekyll&lt;/a&gt; looked great, it had a load of themes, well supported and good traction. So I installed it, however, the installation wasnt as smooth as I had hoped it to be, partially due to my overzealous bypassing of most of the documentation. Also I had issues in installing ruby, once I got ruby I needed to install bundler, and I realized I need to update them all in different ways. I was unfamililar with ruby and I wondered if there is something similar available for &lt;code&gt;Python&lt;/code&gt;, and hence I found &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;.&lt;/p&gt;

@@ -1,4 +1,4 @@
-xTitle: Customizing the blog
+Title: Customizing the blog
 Date: 2015-10-12
 Category: Pelican
 Authors: habeebq
