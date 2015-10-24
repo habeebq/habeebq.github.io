@@ -1,3 +1,6 @@
+Title: About
+
+
 It's hard to describe yourself when you feel it is the journey that describes you not your state of being.
 
 Trained as an electronics engineer and currently working as an ASIC designer I consider myself a computer polyglot.
