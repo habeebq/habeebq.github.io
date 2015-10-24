@@ -7,12 +7,12 @@ So I'm no front-end developer. In the past I've tried to understand CSS, but it 
 
 I started off with the `pelican-bootstrap3` theme by [DandyDev](https://github.com/DandyDev/pelican-bootstrap3). This guy has put in a lot of effort to port the theme properly to `Pelican` with some extensions. Its a great theme and offers a lot out of the box, but I really wanted to make it look different. The theme also comes with a lot of pre-minified CSS (just CSS compacted for transport) from Thomas Park's [Bootswatch](http://bootswatch.com/). This contained a lot of different and interesting styles for bootstrap.
 
-Lets talk about first, what is bootstrap. Bootstrap is a front-end framework originating from Twitter, that basically has a library of component customisations. The HTML actually defines these components, and assigns each object a class. The bootstrap css, when loaded then styles all of these components. This framework contains a large number of component customisations like grids and tables etc. The main aim, is to make the website **responsive**. This means it loads and scales properly on mobile, tablets and desktops etc. If you see a bootstrap based website, it will look good on any screen size, and will act a bit differently on them, for e.g. the menu and navbar acts differently on mobile vs desktop.
+Lets start by understanding what bootstrap is. Bootstrap is a front-end framework originating from Twitter, that basically has a library of component customisations. The HTML actually defines these components, and assigns each object a class. The bootstrap css, when loaded then styles all of these components. This framework contains a large number of component customisations like grids and tables etc. The main aim, is to make the website **responsive**. This means it loads and scales properly on mobile, tablets and desktops etc. If you see a bootstrap based website, it will look good on any screen size, and will act a bit differently on them, for e.g. the menu and navbar acts differently on mobile vs desktop.
 
 [Bootswatch](http://bootswatch.com/) hosts some nice looking free themes for bootstrap. These mainly change the color schemes etc. Also, fortunately, the `pelican-bootstrap3` comes with these themes already built-in! You do not need to add them yourself.
 
 
-So, now if we want to use the bootstrap theme in Pelican, we can clone the [repo](https://github.com/DandyDev/pelican-bootstrap3) and follow the instructions there:
+So lets start off by cloning the bootstrap theme to get a local copy bootstrap theme in Pelican, we can clone the. There are instructions on the [repo](https://github.com/DandyDev/pelican-bootstrap3) github too:
 
 	:::bash
 	git clone https://github.com/DandyDev/pelican-bootstrap3.git
