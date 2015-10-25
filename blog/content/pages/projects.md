@@ -4,6 +4,7 @@ Date: 2015-10-12
 
 ### Video compression
 Implementation of parts of codecs.
+
 * H264 Lossless mode
 * H264 10-bit modes
 * VP8 bitstream parsing
@@ -30,6 +31,7 @@ I do this to make my workflow easier and better. Nothing major, just using tiny 
 
 #### Python
 Most of my glue logic.
+
 * LGenerator - Generate android jar libraries
 * RGenerator - Generate R files by parsing source
 * Code invertor - Generate documentation from source code
