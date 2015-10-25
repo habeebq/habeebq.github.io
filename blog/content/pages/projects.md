@@ -1,3 +1,6 @@
+Title: Projects
+Date: 2015-10-12
+
 
 ### Video compression
 Implementation of parts of codecs.
