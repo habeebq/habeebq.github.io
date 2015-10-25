@@ -4,7 +4,7 @@
         {% for article in (articles_page.object_list if articles_page else articles) %}
             <article>
 	      <div class="article-header">
-                <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                <h2><a href="{{ SITEURL }}/{{ article.url }}" class="article-header">{{ article.title }}</a></h2>
 	      </div>
                 {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
                     <div class="well well-sm">
