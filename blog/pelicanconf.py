@@ -47,6 +47,7 @@ PYGMENTS_STYLE  = 'monokai'
 
 #Navbar
 DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_PAGES_ON_MENU      = False
 
 #SIDEBAR
 #Turn off ABOUT_ME by not setting it
