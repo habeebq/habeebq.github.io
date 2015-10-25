@@ -37,8 +37,8 @@ DEFAULT_PAGINATION = 10
 MD_EXTENSIONS = ['codehilite(css_class=highlight)','extra']
 LOAD_CONTENT_CACHE = False
 MAIN_MENU = True
-MENUITEMS = (('projects', '/projects.html', 'code-fork'),
-             ('whoami', '/about.html', 'user'))
+MENUITEMS = (('projects', 'pages/projects.html', 'code-fork'),
+             ('whoami', 'pages/about.html', 'user'))
 
 THEME = '/home/habeeb/workspace/habeebq.github.io/blog/pelican-bootstrap3'
 #BOOTSTRAP_THEME = 'cosmo'
