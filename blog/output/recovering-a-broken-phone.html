@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Recovering a broken phone - BITSMASHING</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/recovering-a-broken-phone.html">
+
+        <meta name="author" content="habeebq" />
+        <meta name="description" content="I broke the screen of my two-and-a-half year old Galaxy S3. Frustrated by the battery life, and the finicky microusb port, that just wouldnt charge the dying phone, I flung it across the room. I was a bit disappointed to break the screen in a single attempt, I was hoping ..." />
+
+        <meta property="og:site_name" content="BITSMASHING" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Recovering a broken phone"/>
+        <meta property="og:url" content="/recovering-a-broken-phone.html"/>
+        <meta property="og:description" content="I broke the screen of my two-and-a-half year old Galaxy S3. Frustrated by the battery life, and the finicky microusb port, that just wouldnt charge the dying phone, I flung it across the room. I was a bit disappointed to break the screen in a single attempt, I was hoping ..."/>
+        <meta property="article:published_time" content="2015-10-25" />
+            <meta property="article:section" content="Android" />
+            <meta property="article:author" content="habeebq" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.readable.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link href="/theme/css/custom.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="BITSMASHING ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+		<b>
+BITSMASHING		</b>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">blog</span></a></li>
+
+                    <li><a href="pages/projects.html"> <i class="fa fa-code-fork"></i>  projects</a></li>
+                    <li><a href="pages/about.html"> <i class="fa fa-user"></i>  whoami</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/recovering-a-broken-phone.html"
+                       rel="bookmark"
+                       title="Permalink to Recovering a broken phone"
+		       class="page-header">
+                        Recovering a broken phone
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+		  <div class="well well-sm">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-10-25T00:00:00+02:00"> Sun 25 October 2015</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="/author/habeebq.html"><i class="fa fa-user"></i> habeebq</a>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/android.html">Android</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+		  </div>
+                </div>
+                <p>I broke the screen of my two-and-a-half year old Galaxy S3. Frustrated by the battery life, and the finicky microusb port, that just wouldnt charge the dying phone, I flung it across the room. I was a bit disappointed to break the screen in a single attempt, I was hoping I would get to bash it a bit more, but while the screen broke completely, the rest of the phone remained alive. It can still charge (oh, the irony) and turn on.</p>
+<p>In the moment later, I started to think what useful data can I get from the phone. While its easy enough to copy photos from the phone, and my contacts are all backed up to google, the only other thing I could think of was my FuelIO logs (mileage and fillup reports).</p>
+<p>Android 4.0 and later, come with some extra adb commands (backup and restore), that will let you backup and restore a particular apps data, or even the full system.</p>
+<p><code>adb</code> is the <code>Android Debug Bridge</code>, which is a command-line platform tool provided by google. It is run on the development host i.e. a windows/linux/mac machine, to which the android device is tethered, and you can send commands interactively to the device with this tool. I have used this in the past, and I remembered I was able to navigate the full file system of the phone, however it seems that in later versions there is more security and I cannot access system or data partitions anymore. So I really wondered how am I going to get the app's internal data without full root access to the file system.</p>
+<p>A bit of googling, and while I couldnt get full access, I figured out how to get a particular apps data:</p>
+<div class="highlight"><pre>adb backup -f &lt;filename.ab&gt; &lt;packagename&gt;
+</pre></div>
+<p>Where the <code>.ab</code> file is an android backup file (just a glorified tar file). You can get the apps package name from the play store, just search for it, and in the url you will see the package name in the id parameter, something like id=com.kajda.fuelio. So this becomes:</p>
+<div class="highlight"><pre>adb backup -f fuelio-data.ab com.kajda.fuelio
+</pre></div>
+<p>It does mention that it will display a prompt on the screen where you can enter an encryption password, but luckily for me it didnt and it just went through. I'm not sure if it is because I had USB Debugging enabled by default. Once you have the backup file, plug in your other phone, install the app, and restore it by:</p>
+<div class="highlight"><pre>adb restore fuelio-data.ab
+</pre></div>
+<p>Here it will prompt you on the phone if you do want to restore. Now when you open the app, you should see all the new data there.</p>
+<p>In the meantime just-in-case, I'd do a full backup of the phone to make sure I have anything I might need later.</p>
+<p>What if you want to check whether the backup does contain any files or not? Well, we need to convert the <code>ab</code> file into a <code>tar</code> file. There may be other methods, but I used this particular tool <code>abe</code> aka <code>android-backup-extractor</code>. After that even 7-zip can read <code>tar</code> files so you should be able to verify the contents.</p>
+<p>For reference here are some useful links:
+<a href="http://forum.xda-developers.com/google-nexus-5/general/guide-backup-data-root-t2824790">Guide to adb backup</a>
+<a href="http://android.stackexchange.com/questions/28481/how-do-you-extract-an-apps-data-from-a-full-backup-made-through-adb-backup">Information on the Android backup format and tools to backup/restore</a>
+<a href="http://forum.xda-developers.com/showthread.php?t=2011811">GUIDE on How to extract, create or edit android adb backups</a>
+<a href="http://www.less-broken.com/blog/2012/04/transferring-apps-and-data-from-one.html">Backing up and restoring all app data</a></p>
+<p>Another thought, if you are in a predicament like me, you can try to use some screen mirroring software, to see what is going on. I'll try DroidExplorer or something like that later.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 habeebq
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>
