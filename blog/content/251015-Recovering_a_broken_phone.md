@@ -33,9 +33,9 @@ In the meantime just-in-case, I'd do a full backup of the phone to make sure I h
 What if you want to check whether the backup does contain any files or not? Well, we need to convert the `ab` file into a `tar` file. There may be other methods, but I used this particular tool `abe` aka `android-backup-extractor`. After that even 7-zip can read `tar` files so you should be able to verify the contents.
 
 For reference here are some useful links:
-[Guide to adb backup](http://forum.xda-developers.com/google-nexus-5/general/guide-backup-data-root-t2824790)
-[Information on the Android backup format and tools to backup/restore](http://android.stackexchange.com/questions/28481/how-do-you-extract-an-apps-data-from-a-full-backup-made-through-adb-backup)
-[GUIDE on How to extract, create or edit android adb backups](http://forum.xda-developers.com/showthread.php?t=2011811)
-[Backing up and restoring all app data](http://www.less-broken.com/blog/2012/04/transferring-apps-and-data-from-one.html)
+* [Guide to adb backup](http://forum.xda-developers.com/google-nexus-5/general/guide-backup-data-root-t2824790)
+* [Information on the Android backup format and tools to backup/restore](http://android.stackexchange.com/questions/28481/how-do-you-extract-an-apps-data-from-a-full-backup-made-through-adb-backup)
+* [GUIDE on How to extract, create or edit android adb backups](http://forum.xda-developers.com/showthread.php?t=2011811)
+* [Backing up and restoring all app data](http://www.less-broken.com/blog/2012/04/transferring-apps-and-data-from-one.html)
 
 Another thought, if you are in a predicament like me, you can try to use some screen mirroring software, to see what is going on. I'll try DroidExplorer or something like that later.
