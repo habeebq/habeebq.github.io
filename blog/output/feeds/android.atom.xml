@@ -16,8 +16,8 @@
 &lt;p&gt;In the meantime just-in-case, I'd do a full backup of the phone to make sure I have anything I might need later.&lt;/p&gt;
 &lt;p&gt;What if you want to check whether the backup does contain any files or not? Well, we need to convert the &lt;code&gt;ab&lt;/code&gt; file into a &lt;code&gt;tar&lt;/code&gt; file. There may be other methods, but I used this particular tool &lt;code&gt;abe&lt;/code&gt; aka &lt;code&gt;android-backup-extractor&lt;/code&gt;. After that even 7-zip can read &lt;code&gt;tar&lt;/code&gt; files so you should be able to verify the contents.&lt;/p&gt;
 &lt;p&gt;For reference here are some useful links:
-&lt;em&gt; &lt;a href="http://forum.xda-developers.com/google-nexus-5/general/guide-backup-data-root-t2824790"&gt;Guide to adb backup&lt;/a&gt;
-&lt;/em&gt; &lt;a href="http://android.stackexchange.com/questions/28481/how-do-you-extract-an-apps-data-from-a-full-backup-made-through-adb-backup"&gt;Information on the Android backup format and tools to backup/restore&lt;/a&gt;
-&lt;em&gt; &lt;a href="http://forum.xda-developers.com/showthread.php?t=2011811"&gt;GUIDE on How to extract, create or edit android adb backups&lt;/a&gt;
-&lt;/em&gt; &lt;a href="http://www.less-broken.com/blog/2012/04/transferring-apps-and-data-from-one.html"&gt;Backing up and restoring all app data&lt;/a&gt;&lt;/p&gt;
+-   &lt;a href="http://forum.xda-developers.com/google-nexus-5/general/guide-backup-data-root-t2824790"&gt;Guide to adb backup&lt;/a&gt;
+-   &lt;a href="http://android.stackexchange.com/questions/28481/how-do-you-extract-an-apps-data-from-a-full-backup-made-through-adb-backup"&gt;Information on the Android backup format and tools to backup/restore&lt;/a&gt;
+-   &lt;a href="http://forum.xda-developers.com/showthread.php?t=2011811"&gt;GUIDE on How to extract, create or edit android adb backups&lt;/a&gt;
+-   &lt;a href="http://www.less-broken.com/blog/2012/04/transferring-apps-and-data-from-one.html"&gt;Backing up and restoring all app data&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Another thought, if you are in a predicament like me, you can try to use some screen mirroring software, to see what is going on. I'll try DroidExplorer or something like that later.&lt;/p&gt;</summary></entry></feed>
