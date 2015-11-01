@@ -25,6 +25,8 @@ Designs proven on production-level devices
 * [Timepiece](https://play.google.com/store/apps/details?id=com.maximussoft.timepiece&hl=en) Random floating clock!
 * [PicturePuzzle](https://play.google.com/store/apps/details?id=com.maximussoft.picpuzzle) Interesting way to use a dynamic grid.
 * Porting and wrapping various Java libraries into the Basic4Android framework
+* Chromecast hackery - creating a remote control
+* Android resource floating window (displays CPU/RAM usage)
 
 #### Emacs hacking
 I do this to make my workflow easier and better. Nothing major, just using tiny bit of elisp and other packages to help prevent RSI and minimize keystrokes.
