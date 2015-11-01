@@ -10,7 +10,7 @@ Implementation of parts of codecs.
 * VP8 bitstream parsing
 * HEVC bitstream parsing
 * VP9 bitstream parsing
-* Performance analysis of video decoder - Identifying Bandwidth, Bitrate throttling
+* Performance analysis of a video decoder - Identifying Bandwidth, Bitrate throttling
 
 ### Digital Design
 Digital design for ASICs on low power profiles
@@ -37,3 +37,4 @@ Most of my glue logic.
 * Code invertor - Generate documentation from source code
 * Other scalable DevOps
 * Deeper Integration into EDATools for e.g. TCL generation, Trace export etc
+* Shell based configuration/workspace manager (csh with aliases that change based on context)
