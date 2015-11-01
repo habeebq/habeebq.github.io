@@ -118,7 +118,7 @@
               <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">blog</span></a></li>
 
                 {% for title, link, icon in MENUITEMS %}
-                    <li><a href="{{ link }}"> <i class="fa fa-{{ icon }}"></i>  {{ title }}</a></li>
+                    <li><a href="{{ SITEURL }}/{{ link }}"> <i class="fa fa-{{ icon }}"></i>  {{ title }}</a></li>
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
                     {% for p in PAGES %}
