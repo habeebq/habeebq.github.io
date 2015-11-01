@@ -1,4 +1,4 @@
-Title: Recovering a broken phone
+Title: Recovering a phone with a broken screen
 Date: 2015-10-25
 Category: Android
 Authors: habeebq
