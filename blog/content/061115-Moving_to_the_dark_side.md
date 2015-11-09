@@ -23,4 +23,6 @@ However what I like is:
 
 What I am concerned I wont like:
 
-
+Lack of customization
+Usually one way of doing things 
+Design
