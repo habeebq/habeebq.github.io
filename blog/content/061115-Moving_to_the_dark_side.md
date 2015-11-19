@@ -6,7 +6,7 @@ So I've finally decided to use an iOS device as my daily driver for atleast a ye
 
 ### Devices I base my opinion on
 So far, I've had a Galaxy S, Galaxy S3 and a MotoG as my daily drivers.
-I've used an iPhone5 occasionally.
+I have used an iPhone5 occasionally.
 Obviously I follow the tech scene, so I read reviews etc...but with a grain of salt.
 
 ### What draws me to an Apple device
@@ -17,12 +17,12 @@ However what I like is:
 
 - The Lightning connector. This is how any connector should be, sturdy and unbreakable. MicroUSB was flimsy.
 - Battery charge time. In my experience Android devices charge far far slower than iOS devices
-- Battery life. No comparison really. Especially on standy.
+- Battery life. No comparison really. Especially on standby.
 - Performance. No lag, no stutter. It just delivers.
 
 What I am concerned I wont like:
 
 - Lack of customization
-- Usually there is only a single way of doing things 
+- Usually there is only a single way of doing things
 - Settings are hidden in weird places for eg battery percentage
 - Design feels a bit dated compared to material
