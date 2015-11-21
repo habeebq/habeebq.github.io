@@ -1,4 +1,7 @@
-Title: Moving to the Dark side Date: 2015-11-06 Category: Android Authors: habeebq
+Title: Moving to the Dark side
+Date: 2015-11-06
+Category: Android
+Authors: habeebq
 
 Most people who know me I personally prefer Android, although I've never forced my opinion on someone else as I believe people have different use cases and requirements depending on how they use their phones.
 
