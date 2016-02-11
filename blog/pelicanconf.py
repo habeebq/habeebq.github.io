@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = u'habeebq'
-SITENAME = u'BITSMASHING'
+SITENAME = u'habeebq'
 SITEURL = ''
 SITEDESCRIPTION = 'Randomizing the unknown...'
 
