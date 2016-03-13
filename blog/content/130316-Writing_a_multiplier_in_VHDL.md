@@ -11,6 +11,9 @@ A simple 2x2 matrix contains just 4 elements in the form of:
 
     a(i,j) | where i=0,1 and j=0,1
 
+
+### Data structure
+
 In order to represent this in VHDL we need to create a data structure.
 
 The usual way I do this is in two steps:
@@ -29,6 +32,17 @@ In terms of hardware synthesized there could be a difference(timing, prioritized
 However for a matrix multiplier where each element is assigned/accessed in the same way, it probably makes no difference.
 It is probably more of a logical distinction, especially when declaring look-up-tables, how you partition your arrays.
 
+The slight difference in accessing the elements of the array will be:
 
+    :::vhdl
+    signal a : t_2d_array;
+    a(x)(y) <= value;
+
+while for the second declaration:
+
+    :::vhdl
+    signal a : t2_2d_array;
+    a(x,y) <= value;
+    
 
 
