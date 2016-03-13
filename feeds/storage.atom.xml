@@ -130,15 +130,48 @@ Random Read 4KiB (Q= 1,T= 1)   :    22.391 MB/s [  5466.6 IOPS]
 Random Write 4KiB (Q= 1,T= 1)  :    62.000 MB/s [ 15136.7 IOPS]
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Running both SSD drives together&lt;/h3&gt;
-&lt;p&gt;HD Tune:
-| Metric | SanDisk SDSSDA240G | Samsung 840 EVO 120G |
-| ------ | ------------------ | -------------------- |
-| Transfer Rate Minimum | 194.8 MB/sec | 389.2 MB/sec|
-| Transfer Rate Maximum | 233.9 MB/sec | 402.9 MB/sec|
-| Transfer Rate Average | 232.8 MB/sec | 397.1 MB/sec|
-| Access Time           | 0.0 ms       | 0.1 ms      |
-| Burst Rate            | 86.2 MB/sec  | 163.3 MB/sec|
-| CPU Usage             | 2.8%         | 2.8%        |&lt;/p&gt;
+&lt;p&gt;I tried to see how benchmarking two SSDs together would affect the speed, and the SATA controller handles them nicely and there are no conflicts, both can reach their peak speeds.&lt;/p&gt;
+&lt;table class="table table-hover table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metric&lt;/th&gt;
+&lt;th&gt;SanDisk SDSSDA240G&lt;/th&gt;
+&lt;th&gt;Samsung 840 EVO 120G&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Transfer Rate Minimum&lt;/td&gt;
+&lt;td&gt;194.8 MB/sec&lt;/td&gt;
+&lt;td&gt;389.2 MB/sec&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Transfer Rate Maximum&lt;/td&gt;
+&lt;td&gt;233.9 MB/sec&lt;/td&gt;
+&lt;td&gt;402.9 MB/sec&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Transfer Rate Average&lt;/td&gt;
+&lt;td&gt;232.8 MB/sec&lt;/td&gt;
+&lt;td&gt;397.1 MB/sec&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Access Time&lt;/td&gt;
+&lt;td&gt;0.0 ms&lt;/td&gt;
+&lt;td&gt;0.1 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Burst Rate&lt;/td&gt;
+&lt;td&gt;86.2 MB/sec&lt;/td&gt;
+&lt;td&gt;163.3 MB/sec&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU Usage&lt;/td&gt;
+&lt;td&gt;2.8%&lt;/td&gt;
+&lt;td&gt;2.8%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h3&gt;Running all 4 drives!&lt;/h3&gt;
 &lt;p&gt;I ran HD Tune on all drives simultaneously to see if they could possibly saturate the SATA bus and there was a bottleneck somewhere in the controller.
 But they ran well :)&lt;/p&gt;

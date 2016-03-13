@@ -236,15 +236,48 @@ Random Read 4KiB (Q= 1,T= 1)   :    22.391 MB/s [  5466.6 IOPS]
 Random Write 4KiB (Q= 1,T= 1)  :    62.000 MB/s [ 15136.7 IOPS]
 </pre></div>
 <h3>Running both SSD drives together</h3>
-<p>HD Tune:
-| Metric | SanDisk SDSSDA240G | Samsung 840 EVO 120G |
-| ------ | ------------------ | -------------------- |
-| Transfer Rate Minimum | 194.8 MB/sec | 389.2 MB/sec|
-| Transfer Rate Maximum | 233.9 MB/sec | 402.9 MB/sec|
-| Transfer Rate Average | 232.8 MB/sec | 397.1 MB/sec|
-| Access Time           | 0.0 ms       | 0.1 ms      |
-| Burst Rate            | 86.2 MB/sec  | 163.3 MB/sec|
-| CPU Usage             | 2.8%         | 2.8%        |</p>
+<p>I tried to see how benchmarking two SSDs together would affect the speed, and the SATA controller handles them nicely and there are no conflicts, both can reach their peak speeds.</p>
+<table class="table table-hover table-striped">
+<thead>
+<tr>
+<th>Metric</th>
+<th>SanDisk SDSSDA240G</th>
+<th>Samsung 840 EVO 120G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transfer Rate Minimum</td>
+<td>194.8 MB/sec</td>
+<td>389.2 MB/sec</td>
+</tr>
+<tr>
+<td>Transfer Rate Maximum</td>
+<td>233.9 MB/sec</td>
+<td>402.9 MB/sec</td>
+</tr>
+<tr>
+<td>Transfer Rate Average</td>
+<td>232.8 MB/sec</td>
+<td>397.1 MB/sec</td>
+</tr>
+<tr>
+<td>Access Time</td>
+<td>0.0 ms</td>
+<td>0.1 ms</td>
+</tr>
+<tr>
+<td>Burst Rate</td>
+<td>86.2 MB/sec</td>
+<td>163.3 MB/sec</td>
+</tr>
+<tr>
+<td>CPU Usage</td>
+<td>2.8%</td>
+<td>2.8%</td>
+</tr>
+</tbody>
+</table>
 <h3>Running all 4 drives!</h3>
 <p>I ran HD Tune on all drives simultaneously to see if they could possibly saturate the SATA bus and there was a bottleneck somewhere in the controller.
 But they ran well :)</p>

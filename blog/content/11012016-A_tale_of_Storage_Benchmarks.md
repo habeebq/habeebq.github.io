@@ -116,16 +116,17 @@ However, the minimum transfer rate dropped to 1 Mbps, not sure what the implicat
   
   
 ###  Running both SSD drives together
-  
-HD Tune:
-| Metric | SanDisk SDSSDA240G | Samsung 840 EVO 120G |
-| ------ | ------------------ | -------------------- |
-| Transfer Rate Minimum | 194.8 MB/sec | 389.2 MB/sec|
-| Transfer Rate Maximum | 233.9 MB/sec | 402.9 MB/sec|
-| Transfer Rate Average | 232.8 MB/sec | 397.1 MB/sec|
-| Access Time           | 0.0 ms       | 0.1 ms      |
-| Burst Rate            | 86.2 MB/sec  | 163.3 MB/sec|
-| CPU Usage             | 2.8%         | 2.8%        |
+
+I tried to see how benchmarking two SSDs together would affect the speed, and the SATA controller handles them nicely and there are no conflicts, both can reach their peak speeds.
+
+| Metric | SanDisk SDSSDA240G | Samsung 840 EVO 120G  |
+| ------ | ------------------ | --------------------- |
+| Transfer Rate Minimum | 194.8 MB/sec | 389.2 MB/sec |
+| Transfer Rate Maximum | 233.9 MB/sec | 402.9 MB/sec |
+| Transfer Rate Average | 232.8 MB/sec | 397.1 MB/sec |
+| Access Time           | 0.0 ms       | 0.1 ms       |
+| Burst Rate            | 86.2 MB/sec  | 163.3 MB/sec |
+| CPU Usage             | 2.8%         | 2.8%         |
 
 
 ### Running all 4 drives!
