@@ -113,7 +113,15 @@ habeebq		</b>
 <p>In order to represent this in VHDL we need to create a data structure.</p>
 <p>The usual way I do this is in two steps:</p>
 <div class="highlight"><pre><span class="k">type</span> <span class="n">t_1d_array</span> <span class="k">is</span> <span class="k">array</span><span class="p">(</span><span class="kt">integer</span> <span class="k">range</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">1</span><span class="p">)</span> <span class="k">of</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">type</span> <span class="n">t_2d_array</span> <span class="k">is</span> <span class="k">array</span><span class="p">(</span><span class="kt">integer</span> <span class="k">range</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">1</span><span class="p">)</span> <span class="k">of</span> <span class="n">t_1d_array</span><span class="p">;</span>
 </pre></div>
+<p>The alternative is to declare a 2D array directly:</p>
+<div class="highlight"><pre><span class="k">type</span> <span class="n">t2_2d_array</span> <span class="k">is</span> <span class="k">array</span><span class="p">(</span><span class="kt">integer</span> <span class="k">range</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">integer</span> <span class="k">range</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">1</span><span class="p">)</span> <span class="k">of</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+<p>I dont see a real difference between declaring the arrays either way.
+In terms of hardware synthesized there could be a difference(timing, prioritized paths), depending on how you access or assign the arrays (row-wise or column-wise operations).
+However for a matrix multiplier where each element is assigned/accessed in the same way, it probably makes no difference.
+It is probably more of a logical distinction, especially when declaring look-up-tables, how you partition your arrays.</p>
             </div>
             <!-- /.entry-content -->
         </article>

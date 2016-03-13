@@ -17,4 +17,18 @@ The usual way I do this is in two steps:
 
     :::vhdl
     type t_1d_array is array(integer range 0 to 1) of std_logic_vector(7 downto 0);
+    type t_2d_array is array(integer range 0 to 1) of t_1d_array;
+
+The alternative is to declare a 2D array directly:
+
+    :::vhdl
+    type t2_2d_array is array(integer range 0 to 1, integer range 0 to 1) of std_logic_vector(7 downto 0);
+
+I dont see a real difference between declaring the arrays either way.
+In terms of hardware synthesized there could be a difference(timing, prioritized paths), depending on how you access or assign the arrays (row-wise or column-wise operations).
+However for a matrix multiplier where each element is assigned/accessed in the same way, it probably makes no difference.
+It is probably more of a logical distinction, especially when declaring look-up-tables, how you partition your arrays.
+
+
+
 
