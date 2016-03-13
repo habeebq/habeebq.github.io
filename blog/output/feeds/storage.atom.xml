@@ -16,7 +16,7 @@
 &lt;td&gt;Samsung EVO 840&lt;/td&gt;
 &lt;td&gt;120GB&lt;/td&gt;
 &lt;td&gt;SATA-3&lt;/td&gt;
-&lt;td&gt;FW: ??&lt;/td&gt;
+&lt;td&gt;FW:&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Samsung Spinpoint F3&lt;/td&gt;
@@ -52,10 +52,8 @@
 &lt;/ul&gt;
 &lt;h2&gt;The first bench&lt;/h2&gt;
 &lt;p&gt;This where I realized the EVO 840 was crapping out, so I had to re-optimized the drive and run the benchmarks again.
-In the follownig benchmarks you can see the average transfer speed gonig from 100 Mbps to 300 Mbps.
+In the following benchmarks you can see the average transfer speed going from 300 Mbps to 390 Mbps, but in real world performance it is much worse. Still better than a mechanical drive though.
 However, the minimum transfer rate dropped to 1 Mbps, not sure what the implications of that are.&lt;/p&gt;
-&lt;h3&gt;Before Optimization (FW upgrade)&lt;/h3&gt;
-&lt;h3&gt;After optimization&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;HD Tune: Samsung SSD 840 EVO 120G Benchmark
 Transfer Rate Minimum : 1.0 MB/sec
 Transfer Rate Maximum : 449.1 MB/sec
@@ -75,6 +73,9 @@ Random Read 4KiB (Q= 1,T= 1)   :    39.854 MB/s [  9730.0 IOPS]
 Random Write 4KiB (Q= 1,T= 1)  :   106.855 MB/s [ 26087.6 IOPS]
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Benchmarking the other drives&lt;/h2&gt;
+&lt;p&gt;The only interesting thing here I see is that the CPU load is much  higher when benching mechanical drives.&lt;/p&gt;
+&lt;p&gt;Well thats not the only interesting thing...&lt;/p&gt;
+&lt;p&gt;Also the Samsung Spinpoint F3 seems to be quite good as a consumer level mechanical drive.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;HD Tune: SAMSUNG HD502HJ Benchmark
 Transfer Rate Minimum : 72.0 MB/sec
 Transfer Rate Maximum : 136.4 MB/sec
