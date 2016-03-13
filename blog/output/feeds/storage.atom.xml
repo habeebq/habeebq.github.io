@@ -44,33 +44,17 @@
 &lt;li&gt;A note on the Samsung EVO 840 drive. I bought this last christmas to boost the performance of the system. While I did see better boot times, i didnt see enough boost in everyday usage, and later I realized while this drive will do great benchmarks I dont think it really performs as spectacularly as I expected. In fact I now feel the slower Sandisk SSD Plus performs better.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1&gt;Programs Used to benchmark&lt;/h1&gt;
-&lt;p&gt;I used &lt;a href="http://www.majorgeeks.com/files/details/hdtach.html"&gt;HDTach&lt;/a&gt; in the past, however I couldnt export the results very cleanly.
-So I found two other reliable programs.
-- &lt;a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html"&gt;CrystalDiskMark&lt;/a&gt;
-- &lt;a href="http://www.hdtune.com/download.html"&gt;HDTune Free edition&lt;/a&gt; There is a free version on their dowloads page, keep your eye peeled&lt;/p&gt;
-&lt;h1&gt;The first bench&lt;/h1&gt;
+&lt;p&gt;I used &lt;a href="http://www.majorgeeks.com/files/details/hdtach.html"&gt;HDTach&lt;/a&gt; in the past, however I couldnt export the results very cleanly.&lt;/p&gt;
+&lt;p&gt;So I found two other reliable programs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html"&gt;CrystalDiskMark&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.hdtune.com/download.html"&gt;HDTune Free edition&lt;/a&gt; There is a free version on their dowloads page, keep your eye peeled&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;The first bench&lt;/h2&gt;
 &lt;p&gt;This where I realized the EVO 840 was crapping out, so I had to re-optimized the drive and run the benchmarks again.
 In the follownig benchmarks you can see the average transfer speed gonig from 100 Mbps to 300 Mbps.
 However, the minimum transfer rate dropped to 1 Mbps, not sure what the implications of that are.&lt;/p&gt;
 &lt;h3&gt;Before Optimization (FW upgrade)&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;HD Tune: SAMSUNG HD502HJ Benchmark
-Transfer Rate Minimum : 72.0 MB/sec
-Transfer Rate Maximum : 136.4 MB/sec
-Transfer Rate Average : 113.4 MB/sec
-Access Time           : 13.6 ms
-Burst Rate            : 176.3 MB/sec
-CPU Usage             : 26.4%
-
-CrystalDiskMark 5.1.0 x64 
-Sequential Read (Q= 32,T= 1)   :   123.125 MB/s
-Sequential Write (Q= 32,T= 1)  :   120.259 MB/s
-Random Read 4KiB (Q= 32,T= 1)  :     0.844 MB/s [   206.1 IOPS]
-Random Write 4KiB (Q= 32,T= 1) :     1.000 MB/s [   244.1 IOPS]
-Sequential Read (T= 1)         :   121.431 MB/s
-Sequential Write (T= 1)        :    99.610 MB/s
-Random Read 4KiB (Q= 1,T= 1)   :     0.433 MB/s [   105.7 IOPS]
-Random Write 4KiB (Q= 1,T= 1)  :     0.882 MB/s [   215.3 IOPS]
-&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;After optimization&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;HD Tune: Samsung SSD 840 EVO 120G Benchmark
 Transfer Rate Minimum : 1.0 MB/sec
@@ -91,76 +75,125 @@ Random Read 4KiB (Q= 1,T= 1)   :    39.854 MB/s [  9730.0 IOPS]
 Random Write 4KiB (Q= 1,T= 1)  :   106.855 MB/s [ 26087.6 IOPS]
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Benchmarking the other drives&lt;/h2&gt;
-&lt;p&gt;HD Tune: ST350041ST3500418AS Benchmark&lt;/p&gt;
-&lt;p&gt;Transfer Rate Minimum : 66.0 MB/sec
+&lt;div class="highlight"&gt;&lt;pre&gt;HD Tune: SAMSUNG HD502HJ Benchmark
+Transfer Rate Minimum : 72.0 MB/sec
+Transfer Rate Maximum : 136.4 MB/sec
+Transfer Rate Average : 113.4 MB/sec
+Access Time           : 13.6 ms
+Burst Rate            : 176.3 MB/sec
+CPU Usage             : 26.4%
+
+CrystalDiskMark 5.1.0 x64 
+Sequential Read (Q= 32,T= 1)   :   123.125 MB/s
+Sequential Write (Q= 32,T= 1)  :   120.259 MB/s
+Random Read 4KiB (Q= 32,T= 1)  :     0.844 MB/s [   206.1 IOPS]
+Random Write 4KiB (Q= 32,T= 1) :     1.000 MB/s [   244.1 IOPS]
+Sequential Read (T= 1)         :   121.431 MB/s
+Sequential Write (T= 1)        :    99.610 MB/s
+Random Read 4KiB (Q= 1,T= 1)   :     0.433 MB/s [   105.7 IOPS]
+Random Write 4KiB (Q= 1,T= 1)  :     0.882 MB/s [   215.3 IOPS]
+
+HD Tune: ST350041ST3500418AS Benchmark
+Transfer Rate Minimum : 66.0 MB/sec
 Transfer Rate Maximum : 123.7 MB/sec
 Transfer Rate Average : 100.0 MB/sec
 Access Time           : 14.2 ms
 Burst Rate            : 134.9 MB/sec
-CPU Usage             : 26.4%&lt;/p&gt;
-&lt;p&gt;CrystalDiskMark 5.1.0 x64 (C) 2007-2015 hiyohiyo&lt;/p&gt;
-&lt;p&gt;Sequential Read (Q= 32,T= 1) :   125.418 MB/s
-  Sequential Write (Q= 32,T= 1) :   105.855 MB/s
-  Random Read 4KiB (Q= 32,T= 1) :     1.874 MB/s [   457.5 IOPS]
- Random Write 4KiB (Q= 32,T= 1) :     0.613 MB/s [   149.7 IOPS]
-         Sequential Read (T= 1) :   125.202 MB/s
-        Sequential Write (T= 1) :   122.893 MB/s
-   Random Read 4KiB (Q= 1,T= 1) :     0.681 MB/s [   166.3 IOPS]
-  Random Write 4KiB (Q= 1,T= 1) :     0.623 MB/s [   152.1 IOPS]&lt;/p&gt;
-&lt;p&gt;HD Tune: SanDisk SDSSDA240G Benchmark&lt;/p&gt;
-&lt;p&gt;Transfer Rate Minimum : 180.2 MB/sec
+CPU Usage             : 26.4%
+
+CrystalDiskMark 5.1.0 x64 (C) 2007-2015 hiyohiyo
+Sequential Read (Q= 32,T= 1)   :   125.418 MB/s
+Sequential Write (Q= 32,T= 1)  :   105.855 MB/s
+Random Read 4KiB (Q= 32,T= 1)  :     1.874 MB/s [   457.5 IOPS]
+Random Write 4KiB (Q= 32,T= 1) :     0.613 MB/s [   149.7 IOPS]
+Sequential Read (T= 1)         :   125.202 MB/s
+Sequential Write (T= 1)        :   122.893 MB/s
+Random Read 4KiB (Q= 1,T= 1)   :     0.681 MB/s [   166.3 IOPS]
+Random Write 4KiB (Q= 1,T= 1)  :     0.623 MB/s [   152.1 IOPS]
+
+HD Tune: SanDisk SDSSDA240G Benchmark
+Transfer Rate Minimum : 180.2 MB/sec
 Transfer Rate Maximum : 235.4 MB/sec
 Transfer Rate Average : 223.6 MB/sec
 Access Time           : 0.0 ms
 Burst Rate            : 72.8 MB/sec
-CPU Usage             : 1.5%&lt;/p&gt;
-&lt;p&gt;CrystalDiskMark 5.1.0 x64 (C) 2007-2015 hiyohiyo&lt;/p&gt;
-&lt;p&gt;Sequential Read (Q= 32,T= 1) :   285.102 MB/s
-  Sequential Write (Q= 32,T= 1) :   223.626 MB/s
-  Random Read 4KiB (Q= 32,T= 1) :   159.216 MB/s [ 38871.1 IOPS]
- Random Write 4KiB (Q= 32,T= 1) :   193.717 MB/s [ 47294.2 IOPS]
-         Sequential Read (T= 1) :   276.234 MB/s
-        Sequential Write (T= 1) :   205.731 MB/s
-   Random Read 4KiB (Q= 1,T= 1) :    22.391 MB/s [  5466.6 IOPS]
-  Random Write 4KiB (Q= 1,T= 1) :    62.000 MB/s [ 15136.7 IOPS]&lt;/p&gt;
-&lt;p&gt;Test : 1024 MiB [F: 0.1% (0.1/223.4 GiB)] (x5)  [Interval=5 sec]
-  Date : 2016/01/09 0:05:48
-    OS : Windows 8.1 Pro [6.3 Build 9600] (x64)&lt;/p&gt;
+CPU Usage             : 1.5%
+
+CrystalDiskMark 5.1.0 x64 (C) 2007-2015 hiyohiyo
+Sequential Read (Q= 32,T= 1)   :   285.102 MB/s
+Sequential Write (Q= 32,T= 1)  :   223.626 MB/s
+Random Read 4KiB (Q= 32,T= 1)  :   159.216 MB/s [ 38871.1 IOPS]
+Random Write 4KiB (Q= 32,T= 1) :   193.717 MB/s [ 47294.2 IOPS]
+Sequential Read (T= 1)         :   276.234 MB/s
+Sequential Write (T= 1)        :   205.731 MB/s
+Random Read 4KiB (Q= 1,T= 1)   :    22.391 MB/s [  5466.6 IOPS]
+Random Write 4KiB (Q= 1,T= 1)  :    62.000 MB/s [ 15136.7 IOPS]
+&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Running both SSD drives together&lt;/h3&gt;
 &lt;p&gt;HD Tune:
-SanDisk SDSSDA240G vs  840 EVO 120G&lt;/p&gt;
-&lt;p&gt;Transfer Rate Minimum : 194.8 MB/sec | 389.2 MB/sec
-Transfer Rate Maximum : 233.9 MB/sec | 402.9 MB/sec
-Transfer Rate Average : 232.8 MB/sec | 397.1 MB/sec
-Access Time           : 0.0 ms       | 0.1 ms    &lt;br/&gt;
-Burst Rate            : 86.2 MB/sec  | 163.3 MB/sec
-CPU Usage             : 2.8%         | 2.8%        &lt;/p&gt;
+| Metric | SanDisk SDSSDA240G | Samsung 840 EVO 120G |
+| ------ | ------------------ | -------------------- |
+| Transfer Rate Minimum | 194.8 MB/sec | 389.2 MB/sec|
+| Transfer Rate Maximum | 233.9 MB/sec | 402.9 MB/sec|
+| Transfer Rate Average | 232.8 MB/sec | 397.1 MB/sec|
+| Access Time           | 0.0 ms       | 0.1 ms      |
+| Burst Rate            | 86.2 MB/sec  | 163.3 MB/sec|
+| CPU Usage             | 2.8%         | 2.8%        |&lt;/p&gt;
 &lt;h3&gt;Running all 4 drives!&lt;/h3&gt;
-&lt;p&gt;HD Tune: SanDisk SDSSDA240G Benchmark&lt;/p&gt;
-&lt;p&gt;Transfer Rate Minimum : 203.1 MB/sec
-Transfer Rate Maximum : 235.7 MB/sec
-Transfer Rate Average : 229.6 MB/sec
-Access Time           : 0.0 ms
-Burst Rate            : 85.9 MB/sec
-CPU Usage             : 4.0%&lt;/p&gt;
-&lt;p&gt;HD Tune: Samsung SSD 840 EVO 120G Benchmark&lt;/p&gt;
-&lt;p&gt;Transfer Rate Minimum : 381.5 MB/sec
-Transfer Rate Maximum : 401.3 MB/sec
-Transfer Rate Average : 390.0 MB/sec
-Access Time           : 0.1 ms
-Burst Rate            : 162.9 MB/sec
-CPU Usage             : 4.0%&lt;/p&gt;
-&lt;p&gt;HD Tune: SAMSUNG HD502HJ Benchmark&lt;/p&gt;
-&lt;p&gt;Transfer Rate Minimum : 72.0 MB/sec
-Transfer Rate Maximum : 136.4 MB/sec
-Transfer Rate Average : 113.5 MB/sec
-Access Time           : 13.7 ms
-Burst Rate            : 162.4 MB/sec
-CPU Usage             : 3.9%&lt;/p&gt;
-&lt;p&gt;HD Tune: ST350041ST3500418AS Benchmark&lt;/p&gt;
-&lt;p&gt;Transfer Rate Minimum : 66.0 MB/sec
-Transfer Rate Maximum : 123.7 MB/sec
-Transfer Rate Average : 100.0 MB/sec
-Access Time           : 14.3 ms
-Burst Rate            : 130.7 MB/sec
-CPU Usage             : 3.8%&lt;/p&gt;</summary></entry></feed>
+&lt;p&gt;I ran HD Tune on all drives simultaneously to see if they could possibly saturate the SATA bus and there was a bottleneck somewhere in the controller.
+But they ran well :)&lt;/p&gt;
+&lt;table class="table table-hover table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metric&lt;/th&gt;
+&lt;th&gt;SanDisk SDSSDA240G&lt;/th&gt;
+&lt;th&gt;Samsung SSD 840 EVO 120G&lt;/th&gt;
+&lt;th&gt;SAMSUNG HD502HJ&lt;/th&gt;
+&lt;th&gt;ST350041ST3500418AS&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Transfer Rate Minimum&lt;/td&gt;
+&lt;td&gt;203.1 MB/sec&lt;/td&gt;
+&lt;td&gt;381.5 MB/sec&lt;/td&gt;
+&lt;td&gt;72.0 MB/sec&lt;/td&gt;
+&lt;td&gt;66.0 MB/sec&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Transfer Rate Maximum&lt;/td&gt;
+&lt;td&gt;235.7 MB/sec&lt;/td&gt;
+&lt;td&gt;401.3 MB/sec&lt;/td&gt;
+&lt;td&gt;136.4 MB/sec&lt;/td&gt;
+&lt;td&gt;123.7 MB/sec&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Transfer Rate Average&lt;/td&gt;
+&lt;td&gt;229.6 MB/sec&lt;/td&gt;
+&lt;td&gt;390.0 MB/sec&lt;/td&gt;
+&lt;td&gt;113.5 MB/sec&lt;/td&gt;
+&lt;td&gt;100.0 MB/sec&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Access Time&lt;/td&gt;
+&lt;td&gt;0.0 ms&lt;/td&gt;
+&lt;td&gt;0.1 ms&lt;/td&gt;
+&lt;td&gt;13.7 ms&lt;/td&gt;
+&lt;td&gt;14.3 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Burst Rate&lt;/td&gt;
+&lt;td&gt;85.9 MB/sec&lt;/td&gt;
+&lt;td&gt;162.9 MB/sec&lt;/td&gt;
+&lt;td&gt;162.4 MB/sec&lt;/td&gt;
+&lt;td&gt;130.7 MB/sec&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU Usage&lt;/td&gt;
+&lt;td&gt;4.0%&lt;/td&gt;
+&lt;td&gt;4.0%&lt;/td&gt;
+&lt;td&gt;3.9%&lt;/td&gt;
+&lt;td&gt;3.8%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</summary></entry></feed>
