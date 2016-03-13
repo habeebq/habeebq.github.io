@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>Moving to the Dark side - habeebq</title>
+    <title>Writing a 2x2 Matrix Multiplier in VHDL - habeebq</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,18 +10,18 @@
 
 
 
-<link rel="canonical" href="/moving-to-the-dark-side.html">
+<link rel="canonical" href="/writing-a-2x2-matrix-multiplier-in-vhdl.html">
 
         <meta name="author" content="habeebq" />
-        <meta name="description" content="Most people who know me I personally prefer Android, although I&#39;ve never forced my opinion on someone else as I believe people have different use cases and requirements depending on how they use their phones. So I&#39;ve finally decided to use an iOS device as my daily driver ..." />
+        <meta name="description" content="There probably isnt a lot to talk about in a simple 2x2 matrix multiplier, but I thougt I&#39;d like to post something basic and then explore its various aspects like verification and coding style etc. In this post (which I am writing in markdown), I am not going to ..." />
 
         <meta property="og:site_name" content="habeebq" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Moving to the Dark side"/>
-        <meta property="og:url" content="/moving-to-the-dark-side.html"/>
-        <meta property="og:description" content="Most people who know me I personally prefer Android, although I&#39;ve never forced my opinion on someone else as I believe people have different use cases and requirements depending on how they use their phones. So I&#39;ve finally decided to use an iOS device as my daily driver ..."/>
-        <meta property="article:published_time" content="2015-11-06" />
-            <meta property="article:section" content="Android" />
+        <meta property="og:title" content="Writing a 2x2 Matrix Multiplier in VHDL"/>
+        <meta property="og:url" content="/writing-a-2x2-matrix-multiplier-in-vhdl.html"/>
+        <meta property="og:description" content="There probably isnt a lot to talk about in a simple 2x2 matrix multiplier, but I thougt I&#39;d like to post something basic and then explore its various aspects like verification and coding style etc. In this post (which I am writing in markdown), I am not going to ..."/>
+        <meta property="article:published_time" content="2016-03-13" />
+            <meta property="article:section" content="VHDL" />
             <meta property="article:author" content="habeebq" />
 
 
@@ -77,11 +77,11 @@ habeebq		</b>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/moving-to-the-dark-side.html"
+                    <a href="/writing-a-2x2-matrix-multiplier-in-vhdl.html"
                        rel="bookmark"
-                       title="Permalink to Moving to the Dark side"
+                       title="Permalink to Writing a 2x2 Matrix Multiplier in VHDL"
 		       class="page-header">
-                        Moving to the Dark side
+                        Writing a 2x2 Matrix Multiplier in VHDL
                     </a>
                 </h1>
             </header>
@@ -92,41 +92,28 @@ habeebq		</b>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-11-06T00:00:00+01:00"> Fri 06 November 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-03-13T00:00:00+01:00"> Sun 13 March 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="/author/habeebq.html"><i class="fa fa-user"></i> habeebq</a>
 
         <span class="label label-default">Category</span>
-        <a href="/category/android.html">Android</a>
+        <a href="/category/vhdl.html">VHDL</a>
 
 
     
 </footer><!-- /.post-info -->                    </div>
 		  </div>
                 </div>
-                <p>Most people who know me I personally prefer Android, although I've never forced my opinion on someone else as I believe people have different use cases and requirements depending on how they use their phones.</p>
-<p>So I've finally decided to use an iOS device as my daily driver for atleast a year and see how it goes. It wasnt an easy decision to make, but hey...lets keep an open mind.</p>
-<h3>Devices I base my opinion on</h3>
-<p>So far, I've had a Galaxy S, Galaxy S3 and a MotoG as my daily drivers.
-I have used an iPhone5 occasionally.
-Obviously I follow the tech scene, so I read reviews etc...but with a grain of salt.</p>
-<h3>What draws me to an Apple device</h3>
-<p>Engineering done well. I feel that Apple devices are well engineered. All the way from the SoC, to the physical product, and extending to the platform. People say its been lagging behind Android, but well, both of these operating systems have been lagging behind each other, and see-sawing which one gets ahead on features etc. The fact is, the more both platforms copy each other, the more features and options become available to the end user. It pushes both teams to innovate and critically think about their engineering and usability decisions.</p>
-<p>However what I like is:</p>
-<ul>
-<li>The Lightning connector. This is how any connector should be, sturdy and unbreakable. MicroUSB was flimsy.</li>
-<li>Battery charge time. In my experience Android devices charge far far slower than iOS devices</li>
-<li>Battery life. No comparison really. Especially on standby.</li>
-<li>Performance. No lag, no stutter. It just delivers.</li>
-</ul>
-<p>What I am concerned I wont like:</p>
-<ul>
-<li>Lack of customization</li>
-<li>Usually there is only a single way of doing things</li>
-<li>Settings are hidden in weird places for eg battery percentage</li>
-<li>Design feels a bit dated compared to material</li>
-</ul>
+                <p>There probably isnt a lot to talk about in a simple 2x2 matrix multiplier, but I thougt I'd like to post something basic and then explore its various aspects like verification and coding style etc.</p>
+<p>In this post (which I am writing in markdown), I am not going to go to the effort of writing matrix notation so I will try to describe what I can in basic text form.</p>
+<p>A simple 2x2 matrix contains just 4 elements in the form of:</p>
+<div class="highlight"><pre>a(i,j) | where i=0,1 and j=0,1
+</pre></div>
+<p>In order to represent this in VHDL we need to create a data structure.</p>
+<p>The usual way I do this is in two steps:</p>
+<div class="highlight"><pre><span class="k">type</span> <span class="n">t_1d_array</span> <span class="k">is</span> <span class="k">array</span><span class="p">(</span><span class="kt">integer</span> <span class="k">range</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">1</span><span class="p">)</span> <span class="k">of</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
             </div>
             <!-- /.entry-content -->
         </article>
