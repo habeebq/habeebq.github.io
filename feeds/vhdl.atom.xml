@@ -121,6 +121,7 @@ The hardware synthesis tool will unroll it into the initial version though in or
 
 &lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="nc"&gt;rtl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Package&lt;/h3&gt;
 &lt;p&gt;And here is the code for the &lt;code&gt;mult_2x2_pack.vhd&lt;/code&gt; file:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;-- ---------------------------------------------------------------------------------------------------------------------------------&lt;/span&gt;
 &lt;span class="c1"&gt;-- Name: mult_2x2_pack&lt;/span&gt;
@@ -137,6 +138,7 @@ The hardware synthesis tool will unroll it into the initial version though in or
 
 &lt;span class="k"&gt;end&lt;/span&gt;  &lt;span class="nc"&gt;mult_2x2_pack&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Testbench&lt;/h3&gt;
 &lt;p&gt;Further more, here is a very rudimentary testbench:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;-- ---------------------------------------------------------------------------------------------------------------------------------&lt;/span&gt;
 &lt;span class="c1"&gt;-- Name: mult_2x2_tb&lt;/span&gt;

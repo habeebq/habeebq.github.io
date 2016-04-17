@@ -149,6 +149,7 @@ Here is the full code for the multiplier.
 
     end rtl;
 
+### Package
 
 And here is the code for the `mult_2x2_pack.vhd` file:
 
@@ -168,6 +169,7 @@ And here is the code for the `mult_2x2_pack.vhd` file:
 
     end  mult_2x2_pack;
 
+### Testbench
 
 Further more, here is a very rudimentary testbench:
 
