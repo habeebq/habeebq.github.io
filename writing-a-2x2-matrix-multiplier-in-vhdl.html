@@ -217,13 +217,16 @@ The hardware synthesis tool will unroll it into the initial version though in or
 
 <span class="k">begin</span>
 
-   <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">1</span> <span class="k">loop</span>
-       <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">1</span> <span class="k">loop</span>
-           <span class="n">out_matrix</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="kt">std_logic_vector</span><span class="p">(</span>
-                                     <span class="n">signed</span><span class="p">(</span><span class="n">in_matrix1</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">))</span> <span class="o">*</span> <span class="n">signed</span><span class="p">(</span><span class="n">in_matrix2</span><span class="p">(</span><span class="n">j</span><span class="p">)(</span><span class="n">i</span><span class="p">))</span> <span class="o">+</span>
-                                     <span class="n">signed</span><span class="p">(</span><span class="n">in_matrix1</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">))</span> <span class="o">*</span> <span class="n">signed</span><span class="p">(</span><span class="n">in_matrix2</span><span class="p">(</span><span class="n">j</span><span class="p">)(</span><span class="n">i</span><span class="p">)));</span>
+   <span class="k">process</span> <span class="p">(</span><span class="n">in_matrix1</span><span class="p">,</span> <span class="n">in_matrix2</span><span class="p">)</span>
+   <span class="k">begin</span>
+       <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">1</span> <span class="k">loop</span>
+           <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">1</span> <span class="k">loop</span>
+               <span class="n">out_matrix</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="kt">std_logic_vector</span><span class="p">(</span>
+                                                   <span class="n">signed</span><span class="p">(</span><span class="n">in_matrix1</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">))</span> <span class="o">*</span> <span class="n">signed</span><span class="p">(</span><span class="n">in_matrix2</span><span class="p">(</span><span class="n">j</span><span class="p">)(</span><span class="n">i</span><span class="p">))</span> <span class="o">+</span>
+                                                   <span class="n">signed</span><span class="p">(</span><span class="n">in_matrix1</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">))</span> <span class="o">*</span> <span class="n">signed</span><span class="p">(</span><span class="n">in_matrix2</span><span class="p">(</span><span class="n">j</span><span class="p">)(</span><span class="n">i</span><span class="p">)));</span>
+           <span class="k">end</span> <span class="k">loop</span><span class="p">;</span>
        <span class="k">end</span> <span class="k">loop</span><span class="p">;</span>
-   <span class="k">end</span> <span class="k">loop</span><span class="p">;</span>
+   <span class="k">end</span> <span class="k">process</span><span class="p">;</span>
 
 <span class="k">end</span> <span class="nc">rtl</span><span class="p">;</span>
 </pre></div>

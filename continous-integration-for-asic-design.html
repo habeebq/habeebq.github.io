@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Continous Integration for ASIC Design - habeebq</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/continous-integration-for-asic-design.html">
+
+        <meta name="author" content="habeebq" />
+        <meta name="description" content="Software development these days is taking a lot of advantage of working in a continous flow. There are a lot of buzzwords going around like continuous integration, continuous deployment, continuous delivery. These terms make a lot of sense for fast moving software designs, but do they make sense for the ..." />
+
+        <meta property="og:site_name" content="habeebq" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Continous Integration for ASIC Design"/>
+        <meta property="og:url" content="/continous-integration-for-asic-design.html"/>
+        <meta property="og:description" content="Software development these days is taking a lot of advantage of working in a continous flow. There are a lot of buzzwords going around like continuous integration, continuous deployment, continuous delivery. These terms make a lot of sense for fast moving software designs, but do they make sense for the ..."/>
+        <meta property="article:published_time" content="2016-04-17" />
+            <meta property="article:section" content="CI" />
+            <meta property="article:author" content="habeebq" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.readable.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link href="/theme/css/custom.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="habeebq ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+		<b>
+habeebq		</b>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">blog</span></a></li>
+
+                    <li><a href="/pages/projects.html"> <i class="fa fa-code-fork"></i><span class="icon-label">projects</span></a></li>
+                    <li><a href="/pages/about.html"> <i class="fa fa-user"></i><span class="icon-label">whoami</span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/continous-integration-for-asic-design.html"
+                       rel="bookmark"
+                       title="Permalink to Continous Integration for ASIC Design"
+		       class="page-header">
+                        Continous Integration for ASIC Design
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+		  <div class="well well-sm">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-04-17T00:00:00+02:00"> Sun 17 April 2016</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="/author/habeebq.html"><i class="fa fa-user"></i> habeebq</a>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/ci.html">CI</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+		  </div>
+                </div>
+                <p>Software development these days is taking a lot of advantage of working in a continous flow. There are a lot of buzzwords going around like <em>continuous integration</em>, <em>continuous deployment</em>, <em>continuous delivery</em>.</p>
+<p>These terms make a lot of sense for fast moving software designs, but do they make sense for the slow lugged ASIC design process?</p>
+<p>Lets talk a bit about continous integration first.</p>
+<p>Here is what is really recommended for CI and what are the benefits to be reaped off it.</p>
+<p>Good practices are:</p>
+<ul>
+<li>Commit frequently: To a central repository (atleast daily or more if possible)</li>
+<li>Build automatically</li>
+<li>Self-test the Build</li>
+<li>Build fast: Have a lean and fast build time</li>
+<li>Test in a clean environment</li>
+<li>Dont check in broken or untested code</li>
+<li>Version control all test scripts, config files, CI scripts</li>
+</ul>
+<p>This allows you to:</p>
+<ul>
+<li>Avoid large integrations, and trying to sort out the merge clutter</li>
+<li>Build automatically as often as possible, and find failures, instead of spending time manually running tests</li>
+<li>Less tracking to see what went wrong</li>
+<li>Gives you more confidence, as your tools will catch problems</li>
+<li>No more waiting, and more focus on actual coding and designing</li>
+</ul>
+<p>Now lets talk about how each of these practices apply to an ASIC Design flow.</p>
+<h3>Commit Frequently</h3>
+<p>ASIC Designers tend to be a bit slower when commiting especially if the mainline is building ok, they would think twice before commiting.
+When using a software flow, it is easy to use <code>feature flags</code> and other <code>disable flags</code> to make sure the code does not run.
+In hardware however, since all the processes are concurrent, they are all running at the same time. Whilst it may be possible to gate
+some features with configuration constants, it is certainly be harder than software. There are more things to worry about
+like signal or interface connections, and vector/array size mismatches. This is why it requires more validation before the code can be checked in.</p>
+<p>There are methodologies that can be used however so this doesnt remain a problem anymore.
+If two features are being developed simultaneously or even one feature is being developed, it best to do it in a separate
+branch where you can enable it, without disrupting the mainline but also make check-ins to the mainline to make sure it integrates
+but the feature remains disabled.</p>
+<p>A lot of times (in VHDL) we would use configuration constants and generics to remove instances completely, or gate processes/registers/signals.</p>
+<p>Many of the tools behave differently (by virtue of purpose), and for e.g. synthesis tools would optimize the hardware away if they are gated off,
+this means they are not tested at all. For this reason we want a separate branch where we can enable the features and thus actually run
+the hardware through the tools to see any problems.</p>
+<h3>Build automatically</h3>
+<p>ASIC designers do not have sophisticated build tools like Gradle or Ant. Instead our tools are very vendor specific and this causes some issues to
+automate the builds in a vendor-agnostic way.</p>
+<p>Also in terms of builds, we want to decide what we would like to automate:
+- The level (top-level, block level)
+- The tests (self-tests, basic tests, acceptance tests, UVM tests)
+- Synthesis tests (check STA, Area)
+- Syntax and linting (simulation compile, code linting)</p>
+<p>There can be a lot of things to run at various levels and the policy needs to decide what needs to be included in the build.
+Alternatively you can have multiple builds running in parallel making different checks. (or the same build multiprocessing)</p>
+<h3>Self-test the Build</h3>
+<p>Functional testing of the build can be divided in a number of ways. In ASIC design we usually have module level testbenches,
+which we can run faster than system level tests.</p>
+<p>One strategy could be to kick of all module level and top level tests in parallel, and see which fails first.</p>
+<p>Running tests at top level can be however quite slow, and you may need to decide on the frequency at which you run them. For e.g.
+maybe run the shorter tests (designed to cover more features) on every check-in but run longer tests once every few hours.</p>
+<h3>Build Fast</h3>
+<p>This can be one of the major bottlenecks in using CI effectively in ASIC design. The build turnaround time is just too high for it
+to detect a failure fast enough, and let the team know so they can fix it before commiting any more new code.</p>
+<p>Simply <code>compiling-for-simulation</code> can take anywhere between 5 minutes to an hour on larger projects. How could you test such a large system.
+And while its possible to break certain operations into smaller parts, sometimes your integration builds just require a top-down operation for e.g.
+you may want to run system level synthesis in one go (as opposed to breaking it down into smaller libraries).</p>
+<p>There are a number of things we can do to alleviate it, but we have to accept that some kinds of builds are just impossible to run within a reasonable
+timeframe.</p>
+<ul>
+<li>Break down testing into module level tests</li>
+<li>Run as much as you can in parallel</li>
+<li>Write better tests to ensure 90% of the integration/features is covered with a smaller testset</li>
+<li>Reduce file i/o (reduce logging, use buffered output)</li>
+<li>Turn off debug features, or high effort on the tools</li>
+<li>Focus on bottlenecks, find out what is taking the longest</li>
+<li>Break down the builds into smaller builds (for e.g. each running a different tool). Some CI tools allow you to build a pipeline this way.</li>
+<li>Run on more powerful machines, faster storage</li>
+<li>Fail fast, fail as soon as something is wrong instead of running all the way through</li>
+<li>Tune the workspace, dont check-out files that your build does not require, maybe keep static files or tests somewhere</li>
+<li>Use the fastest tools that give you the result you need (for e.g. does VCS run faster on your code or INCISIVE?)</li>
+<li>Tuning the tools settings to minimize access scope can improve runtime speed (for e.g. if you do not need to look at signals)</li>
+<li>Profile the RTL code, occasionally we have seen unneeded file handles open, or processes running too many times generating delta cycles</li>
+<li>Turn off unnecessary file i/o from RTL tests like ensuring waves are not on, or only writing CRCs to file instead of full data transactions</li>
+<li>Synthesize in blocks in a bottom-up approach allows you to fail fast</li>
+</ul>
+<h3>Test in a clean environment</h3>
+<p>It is important to test the build in a clean workspace in case there are remnants of the previous build that cause issues.
+Having a dedicated VCS build server is useful, in order to handle the load of builds, and not slow down interactive VCS people are using.</p>
+<h3>Dont check in broken or untested code</h3>
+<p>This should be avoided, otherwise your builds will simply be wasting CPU cycles. It is not expected that all the tests are run (that is the job of 
+CI), but some basic testing should have been done, so that the builds can go on.</p>
+<h3>Version control all test scripts, config files, CI scripts</h3>
+<p>This is something I like to do. Make sure all the scripts are self-contained in the version control system. Some CI tools dont easily support version controlling
+their job configs, but I think that should be the way forward. I also prefer to decouple the test scripts from the CI tool, and try to keep it agnostic
+so they can be ported to another tool (or another instance) if required. Having the job configs in VCS is also very useful to know why a job failed due
+to a config change (and what the person was trying to do when he changed it). Track everything.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 habeebq
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>
