@@ -139,14 +139,17 @@ Here is the full code for the multiplier.
 
     begin
 
-       for i in 0 to 1 loop
-           for j in 0 to 1 loop
-               out_matrix(i)(j) <= std_logic_vector(
-                                         signed(in_matrix1(i)(j)) * signed(in_matrix2(j)(i)) +
-                                         signed(in_matrix1(i)(j)) * signed(in_matrix2(j)(i)));
+       process (in_matrix1, in_matrix2)
+       begin
+           for i in 0 to 1 loop
+               for j in 0 to 1 loop
+                   out_matrix(i)(j) <= std_logic_vector(
+                                                       signed(in_matrix1(i)(j)) * signed(in_matrix2(j)(i)) +
+                                                       signed(in_matrix1(i)(j)) * signed(in_matrix2(j)(i)));
+               end loop;
            end loop;
-       end loop;
-
+       end process;
+       
     end rtl;
 
 ### Package
