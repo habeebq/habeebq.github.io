@@ -1,0 +1,18 @@
+
+User Defined Attributes
+VHDL supports User Defined Attributes as well. They can be useful are preprocessor arguments for Tools to know what to do with particular symbols.
+The only place I have come across it is to tell emulator tools how to synthesize certain registers (RAMs or Registers). FPGA tools may use them as well.
+Apart from that, I guess you can use them if you want to write your own tool and pass some obscure information to it.
+
+  :::vhdl
+  attribute attribute_name: type;             -- attribute declaration
+  attribute attribute_name of item : item_class is expression; -- attribute specification
+  
+  :::vhdl
+  attribute signal_desc : String;
+  signal the_signal : std_logic_vector(5 dowto 0);
+  attribute signal_desc of signal : std_logic_vector is "The description of the signal";
+
+Now you can write your own VHDL analyzer to pass this information to a document generator!
+
+Optional Arguments to functions
