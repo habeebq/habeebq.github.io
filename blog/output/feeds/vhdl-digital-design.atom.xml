@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>habeebq</title><link href="/" rel="alternate"></link><link href="/feeds/vhdl-digital-design.atom.xml" rel="self"></link><id>/</id><updated>2016-08-20T00:00:00+02:00</updated><entry><title>10 Things I didnt know about VHDL</title><link href="/10-things-i-didnt-know-about-vhdl.html" rel="alternate"></link><updated>2016-08-20T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2016-08-20:10-things-i-didnt-know-about-vhdl.html</id><summary type="html">&lt;p&gt;I know the title sounds like a Buzzfeed article...and number 7 will blow your mind!&lt;/p&gt;
+&lt;p&gt;But yeah, the more I read code, the more I see interesting ways people write code.
+Some are good, some are bad, but mostly you come across these because some tool fails
+to parse or synthesize the code. Tools are getting better as we report bugs, and vendors
+are indeed improving things, but the VHDL LRM certainly allows for a lot of ambiguity.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Generate statements&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Declarations within Generate statements&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Optional parameters in functions&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary></entry><entry><title>Practical Use of Types in VHDL</title><link href="/practical-use-of-types-in-vhdl.html" rel="alternate"></link><updated>2016-08-06T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2016-08-06:practical-use-of-types-in-vhdl.html</id><summary type="html">&lt;p&gt;Types and subtypes are widely used in VHDL to organise your code and data.&lt;/p&gt;
+&lt;p&gt;So what prompted me to write about types? A colleague showed me some of his code
+that was using types in a way that I hadnt realized possible before.
+At that point I realized it was time for me to re-visit the core concepts of types. This
+was something I was meaning to do for a long time, but never had the motivation to do so.&lt;/p&gt;
+&lt;h1&gt;Difference between Types and Subtypes&lt;/h1&gt;
+&lt;p&gt;A type is a VHDL construct provided by the Language Definition.&lt;/p&gt;
+&lt;p&gt;A subtype is derrived from a type with additional constraints.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;However, subtypes are only safer in simulation; in real hardware, there are no boundary checks&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;Examples of Types&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="n"&gt;enum_type&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;STATE_IDLE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                   &lt;span class="n"&gt;STATE_READ&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                   &lt;span class="n"&gt;STATE_WRITE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                   &lt;span class="n"&gt;STATE_COMPLETE&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Word about the type that is record&lt;/h1&gt;
+&lt;p&gt;Records are very useful types in organizing VHDL code.
+However, being an abtract type they have some disadvantages.
+Mainly different EDA tools handle them differently, and more often than not,
+records become unrecognisable within the tool (for e.g. a synthesized netlist).
+Moreover there are some challenges with a signal that is declared as a record type
+as it needs to be assigned all within the same process so that tools do not get too confused.&lt;/p&gt;
+&lt;h1&gt;Enum Types&lt;/h1&gt;
+&lt;p&gt;Enum types are great. They also suffer from visibility problems and debugging on an
+emulator and FPGA can be tricky, as you need to know the mapping of an enum to a vector.&lt;/p&gt;
+&lt;p&gt;These types are frequently used in state machines.
+The synthesis tools have the option to synthesise this as they want to optimize timing/area/power.
+They can be encoded as a binary vector, or one-hot encoded.&lt;/p&gt;
+&lt;h1&gt;Ranged Types/Subtypes: Integer/Natural&lt;/h1&gt;
+&lt;p&gt;A range specifies a subset of values of a scalar type.&lt;/p&gt;
+&lt;p&gt;A range constraint is compatible with a subtype if each bound of the range belongs to the subtype or if the range constraint defines a null range.&lt;/p&gt;
+&lt;p&gt;(source)[http://rti.etf.bg.ac.rs/rti/ri5rvl/tutorial/TUTORIAL/IEEE/HTML/1076_3.HTM]&lt;/p&gt;
+&lt;p&gt;On inital searching for a way to define a range type, for some reason I came up with nothing.&lt;/p&gt;
+&lt;p&gt;Until a colleague mentioned this to me, and since then I am dissapointed I didnt know about this before.&lt;/p&gt;
+&lt;p&gt;So lets say you need to pack fields into a big vector.&lt;/p&gt;
+&lt;p&gt;At some point you need to slice it to extract elements and put in elements.&lt;/p&gt;
+&lt;p&gt;Method one:
+Define FIELD0_MSB, FIELD0_LSB
+The problem with this is inserted or removing a new field requires updating the table of all the fields.&lt;/p&gt;
+&lt;p&gt;Method two:
+Define FIELD_OFFSET, FIELD_SIZE
+also  FIELD1_OFFSET = FIELD0_OFFSET + FIELD0_SIZE
+This allows you to easily insert/remove fields.
+However this method is still very clunky and requires function to pack/unpack items.&lt;/p&gt;
+&lt;p&gt;It still doesnt allow easy slicing which has to be done:&lt;/p&gt;
+&lt;p&gt;vector(FIELD_TABLE(FIELD_ELEMENT).OFFSET + FIELD_TABLE(FIELD_ELEMENT).SIZE downto FIELD_TABLE(FIELD_ELEMENT).OFFSET);&lt;/p&gt;
+&lt;p&gt;Also, my simulation tools didnt like this, so I had to recode it as subtypes.&lt;/p&gt;
+&lt;p&gt;Method 3: Using subtypes&lt;/p&gt;
+&lt;p&gt;Define:
+subtype field0 is std_logic_vector(13 downto 5);
+vector(field0'RANGE);&lt;/p&gt;
+&lt;p&gt;However for the subtype you still need to define a table of MSBS and LSBS.&lt;/p&gt;
+&lt;p&gt;Method 4: Using range type
+This is the one that eluded me and I am trying to get to grips with this one.&lt;/p&gt;
+&lt;p&gt;subtype FIELD0_RANGE is integer range 13 downto 5;
+vector(FIELD0_RANGE);&lt;/p&gt;
+&lt;p&gt;So what makes this counter-intuitive?&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;FIELD0_RANGE&lt;/code&gt; is just a constrained integer, right?&lt;/p&gt;
+&lt;p&gt;signal my_int : FIELD0_RANGE := 8;&lt;/p&gt;
+&lt;p&gt;is a single value, right?&lt;/p&gt;
+&lt;p&gt;However we are not using an instance of that range, we are using the definition of it.&lt;/p&gt;
+&lt;p&gt;In method 3, we saw that std_logic_vector has an attribute &lt;code&gt;'RANGE&lt;/code&gt; that returns a range.However, subtypes are only safer in simulation; in real hardware, there are no boundary checks &lt;/p&gt;
+&lt;p&gt;Ok, how does this work for enums?&lt;/p&gt;
+&lt;p&gt;What is the difference between &lt;code&gt;vector(ENUM_TYPE)&lt;/code&gt; and &lt;code&gt;vector(ENUM_VALUE)&lt;/code&gt;?
+Starts to make sense now?&lt;/p&gt;
+&lt;p&gt;How about arrays?
+&lt;code&gt;array(ENUM_TYPE)&lt;/code&gt; assigns a number of values at the same time
+&lt;code&gt;array(ENUM_VALUE)&lt;/code&gt; assigns one value at a time.&lt;/p&gt;
+&lt;p&gt;like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;vector&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ENUM_TYPE&lt;/span&gt;  &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;"0", ENUM_VALUE =&amp;gt; "0"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;vector&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="k"&gt;downto&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;"0", 0 =&amp;gt; "0"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There is something similar for records as well&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;record &amp;lt;= (OFFSET =&amp;gt; "000", SIZE =&amp;gt; "001");
+&lt;/pre&gt;&lt;/div&gt;</summary></entry></feed>

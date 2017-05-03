@@ -1,5 +1,5 @@
 Title: Projects
-Date: 2015-10-12
+Date: 2017-05-03
 
 
 ### Video compression
@@ -77,19 +77,67 @@ I was involved in the specification, design, and debug of the full system level,
 I did similar work as in the previous projects, but also looked at the usage of new tools and their features, and also worked on improving the current workflow.
 
 ##### VP9 Decoder
-I am currently working on the `VP9` decode pipeline, responsible for the EntropyPipe block that involved multiple modules.
+Eventually this project got canned citing a lack of interest from customers and a lack of possible revenue from video IP. This was a strange decision considering that the decoder team had never run out of customer-driven projects until now.
 
-I am responsible for delivering this module, and am overlooking a variable number of engineers (3-4).
-I am invovled in all the design decisions, those concerning performance, power and area.
+I was working on the `VP9` decode pipeline, responsible for the EntropyPipe block that involved multiple modules.
 
-I am also working on the specification and design of the VP9 Bitstream parser, parameter storage block.
+I worked on a part called the ParamsManager which was in in-memory buffer manager designed to store and retrieve certain parameters (above/left contexts) required in the VP9 bitstream decode whilst hiding memory latency.
+I had some great members in my design team, who produced some very clever ideas to save area/power and increase performance. He brought some nice ideas in order to decode 2 bins/clk and we further developed those ideas.
 
-Quite sad to see the codec developers complete disregard of HW engineers! So much bitstream heavy dependencies, there is nowhere to run!
+One of the designers was constantly breaking simulation compile/synthesis and integration in a back and forth manner. I had to spend a lot of time trying to work out what was broken, so I eventually set up a Jenkins job, to track compile, synthesis and run my own static code analyzer to report code health. I really liked
+automating this part and being able to see the reports as a trend was great.
 
-##### Other intersting EDA related projects?
+Sadly this was the first project I worked on that wasn't completed.
+
+Also quite sad to see the codec developers complete disregard of HW engineers! So much bitstream heavy dependencies, there is nowhere to run!
+
+##### Vision Project: Implementation of a CNN in hardware
+
+I was brought on the initial development of a CNN hardware accelerator. At this stage the project was in its infancy and a lot of feature and product decisions were unclear. 
+This was also quite a departure from most of the previous designs I had worked on. The accelerator worked on much wider and deeper datasets and was memory bandwidth limited for how much data it could process in one pass. 
+I worked on the back-end functions like buffering, pooling and normalization.
+The challenges of designing and architecting these blocks was that there was too many degrees of freedom and to make sure that we could optimize for storage and
+throughput in all operating modes was quite difficult. Many a time I took a line of thinking that I had to discard later.
+
+Right after the specification review our whole team was moved permanently to another division.
+We handed over our specs to the next team taking over and I would hope some remnants of my spec went into the hardware.
+
+##### Flow Team
+
+Seeing my active interest over the past few years in automation, scripting, methodologies and workflows I was placed into the GPU Flow team.
+
+When I got here, the project's flow work had mostly already been re-done and was mostly brand new and ready to use.
+I was expected to do handovers, maintenance and adding new features. 
+In addtion to dealing with user tickets, helping them understand the flow, and fix bugs and expectations.
+
+First major job was setting up Spyglass Clock domain crossing flow. I read through the tutorials and documentation and with some back and forth help with Synopsys I managed to implement CDC for the project without being too invasive.
+
+Next was emulator bring up. I had to modify some build scripts and suggest RTL coding style changes to appease the emulator compiler tools. I have more outstanding work I would like to do on this when i have the time.
+
+*JTAG tests integration *
+
+JTAG tests came from the microprocessor team that supply the processor inside the GPU.
+The tests were made to run on their testbench, and I had to create an automated way to port their tests to our GPU testbench. This included some minor TB changes, and an algorithm to map the registers to our TB registers whilst still keeping them sane.
+
+* Name server *
+
+We have a regression system that creates a webserver as the primary interface for the user and runs tests in the background.
+Occasionally the link to this server (which is dynamically generated) gets lost in the logs or requires a lot of clicks to reach on Jenkins.
+The purpose of the name server, was to collect all of the running regressions in one place so a user can see and control all of his regressions.
+This is still a work in progress with a lot of scope to become a centralized dashboard or command centre.
+I wrote this in Flask/SQL-Alchemy with an SQLite database.
+
+I'm pretty sure using an SQLite database on a network file system was a mistake, and on high traffic days I sometimes see database locking issues.
+
+
+Other work i was involved in Emulator/RTL TB unification, performance telemetry, ATPG, Certitude debug, Spyglass waiver TCL comment stripper. 
+
+
+##### Other interesting EDA related projects?
 I have a lot of ideas incubating in my mind to improve EDA design or debug flow, but never really the time to get those to fruiton.
 
-There are some interesting scripts I am working on hoping to get some automatic debug ready one day. Some of them are Python TCL generators to do extract information from simulations, and similarly scripts to extract values from waveforms.
+There are some interesting scripts I am working on hoping to get some automatic debug ready one day.
+Some of them are Python TCL generators to do extract information from simulations, and similarly scripts to extract values from waveforms.
 
 
 ### Other projects, hobbycraft and hackwork

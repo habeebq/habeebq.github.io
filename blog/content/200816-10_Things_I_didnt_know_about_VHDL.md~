@@ -1,0 +1,118 @@
+Title: Practical Use of Types in VHDL
+Date: 2016-08-06
+Category: VHDL, Digital Design
+Authors: habeebq
+
+Types and subtypes are widely used in VHDL to organise your code and data.
+
+So what prompted me to write about types? A dear colleague showed me some of his code
+that was using types in a way that I hadnt realized possible before.
+At that point I realized it was time for me to re-visit the core concepts of types. This
+was something I was meaning to do for a long time, but never had the motivation to do so.
+
+
+# Difference between Types and Subtypes
+A type is a VHDL construct provided by the Language Definition.
+
+A subtype is derrived from a type with additional constraints.
+
+>> However, subtypes are only safer in simulation; in real hardware, there are no boundary checks
+
+
+# Examples of Types
+
+    :::VHDL
+    type enum_type is (STATE_IDLE,
+                       STATE_READ,
+                       STATE_WRITE,
+                       STATE_COMPLETE);
+    
+
+# Word about the type that is record
+Records are very useful types in organizing VHDL code.
+However, being an abtract type they have some disadvantages.
+Mainly different EDA tools handle them differently, and more often than not,
+records become unrecognisable within the tool (for e.g. a synthesized netlist).
+Moreover there are some challenges with a signal that is declared as a record type
+as it needs to be assigned all within the same process so that tools do not get too confused.
+
+# Enum Types
+Enum types are great. They also suffer from visibility problems and debugging on an
+emulator and FPGA can be tricky, as you need to know the mapping of an enum to a vector.
+
+These types are frequently used in state machines.
+The synthesis tools have the option to synthesise this as they want to optimize timing/area/power.
+They can be encoded as a binary vector, or one-hot encoded.
+
+
+# Ranged Types/Subtypes: Integer/Natural 
+On inital searching for a way to define a range type, for some reason I came up with nothing.
+
+Until a colleague mentioned this to me, and since then I am dissapointed I didnt know about this before.
+
+So lets say you need to pack fields into a big vector.
+
+At some point you need to slice it to extract elements and put in elements.
+
+Method one:
+Define FIELD0_MSB, FIELD0_LSB
+The problem with this is inserted or removing a new field requires updating the table of all the fields.
+
+Method two:
+Define FIELD_OFFSET, FIELD_SIZE
+also  FIELD1_OFFSET = FIELD0_OFFSET + FIELD0_SIZE
+This allows you to easily insert/remove fields.
+However this method is still very clunky and requires function to pack/unpack items.
+
+It still doesnt allow easy slicing which has to be done:
+
+vector(FIELD_TABLE(FIELD_ELEMENT).OFFSET + FIELD_TABLE(FIELD_ELEMENT).SIZE downto FIELD_TABLE(FIELD_ELEMENT).OFFSET);
+
+Also, my simulation tools didnt like this, so I had to recode it as subtypes.
+
+Method 3: Using subtypes
+
+Define:
+subtype field0 is std_logic_vector(13 downto 5);
+vector(field0'RANGE);
+
+However for the subtype you still need to define a table of MSBS and LSBS.
+
+Method 4: Using range type
+This is the one that eluded me and I am trying to get to grips with this one.
+
+subtype FIELD0_RANGE is integer range 13 downto 5;
+vector(FIELD0_RANGE);
+
+So what makes this counter-intuitive?
+
+`FIELD0_RANGE` is just a constrained integer, right?
+
+signal my_int : FIELD0_RANGE := 8;
+
+is a single value, right?
+
+So how does a single integer type become a range of integers?
+
+In method 3, we saw that std_logic_vector has an attribute `'RANGE` that returns a range?
+
+Ok, how does this work for enums?
+
+What is the difference betweeh `vector(ENUM_TYPE)` and `vector(ENUM_VALUE)`?
+Starts to make sense now?
+
+How about arrays?
+`array(ENUM_TYPE)` assigns a number of values at the same time
+`array(ENUM_VALUE)` assigns one value at a time.
+
+like
+
+    :::VHDL
+    vector <= (ENUM_TYPE  => "0", ENUM_VALUE => "0");
+    vector <= (5 downto 1 => "0", 0 => "0");
+
+
+There is something similar for records as well
+
+    record <= (OFFSET => "000", SIZE => "001");
+
