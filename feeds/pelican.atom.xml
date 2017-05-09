@@ -66,7 +66,7 @@ In the head section of the template we define the following. We have created a n
 &lt;h4&gt;Font Awesome Icons in the Navbar&lt;/h4&gt;
 &lt;p&gt;Adding font-awesome icons to the Navbar requires modification of the jinja template, again we go back to our &lt;code&gt;base.html&lt;/code&gt; file. &lt;/p&gt;
 &lt;p&gt;We modify the section where MENUITEMS are being iterated over. Add the font awesome icon here (this is possibly not the best way to add the icon in terms of styling/spanning, I need to improve this):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;{% for title, link, icon in MENUITEMS %}
+&lt;div class="highlight"&gt;&lt;pre&gt;{% for (title, link, icon) in MENUITEMS %}
     &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;"{{ link }}"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;i&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"fa fa-{{ icon }}"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;  {{ title }}&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
 {% endfor %}
 &lt;/pre&gt;&lt;/div&gt;
