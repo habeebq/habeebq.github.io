@@ -103,7 +103,7 @@ Adding font-awesome icons to the Navbar requires modification of the jinja templ
 
 We modify the section where MENUITEMS are being iterated over. Add the font awesome icon here (this is possibly not the best way to add the icon in terms of styling/spanning, I need to improve this):
 
-	:::html
+	:::python
 	{% for (title, link, icon) in MENUITEMS %}
 		<li><a href="{{ link }}"> <i class="fa fa-{{ icon }}"></i>  {{ title }}</a></li>
 	{% endfor %}
