@@ -110,7 +110,7 @@ habeebq		</b>
 Some are good, some are bad, but mostly you come across these because some tool fails
 to parse or synthesize the code. Tools are getting better as we report bugs, and vendors
 are indeed improving things, but the VHDL LRM certainly allows for a lot of ambiguity.</p>
-<h2>1. Generate statements</h2>
+<h3>1. Generate statements</h3>
 <p>This is simple, but a lot of people dont know about generate statements even though they are also present in  Verilog.</p>
 <p>There are two main kinds of generate constructs: the if generate, and the for generate.</p>
 <p>if-generate statements are greate to rip out unneeded logic based on a feature etc. Dont forget to add the converse generate statement
@@ -130,7 +130,7 @@ or just to assign signal values over a vector.</p>
     <span class="n">a_vector</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="k">downto</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">b_array</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <span class="k">end</span> <span class="k">generate</span> <span class="nc">g_generate</span><span class="p">;</span>
 </pre></div>
-<h2>2. Declarations within Generate statements</h2>
+<h3>2. Declarations within Generate statements</h3>
 <p>You can also declare signals within the scope of a generate statement. This allows them to not even be defined in the case the generate
 isnt true.</p>
 <div class="highlight"><pre><span class="n">g_generate_signals</span> <span class="o">:</span> <span class="k">if</span> <span class="n">FEATURE</span> <span class="o">=</span> <span class="n">true</span> <span class="k">generate</span>
@@ -140,20 +140,21 @@ isnt true.</p>
         <span class="n">feature_option</span> <span class="o">&lt;=</span> <span class="n">derive_feature</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
 <span class="k">end</span> <span class="k">generate</span> <span class="nc">g_generate_signals</span><span class="p">;</span>
 </pre></div>
-<h2>3. Optional parameters in functions</h2>
+<h3>3. Optional parameters in functions</h3>
 <p>VHDL functions allo optional parameters. I really wouldnt recommend using this unless it is a straight forward use case because some tools
 will definitely choke on this.</p>
-<h2>4. User Defined Attributes</h2>
+<h3>4. User Defined Attributes</h3>
 <p>VHDL supports User Defined Attributes as well. They can be useful are preprocessor arguments for Tools to know what to do with particular symbols.
 The only place I have come across it is to tell emulator tools how to synthesize certain registers (RAMs or Registers). FPGA tools may use them as well.
 Apart from that, I guess you can use them if you want to write your own tool and pass some obscure information to it.</p>
-<p>:::vhdl
-  attribute attribute_name: type;             -- attribute declaration
-  attribute attribute_name of item : item_class is expression; -- attribute specification</p>
-<p>:::vhdl
-  attribute signal_desc : String;
-  signal the_signal : std_logic_vector(5 dowto 0);
-  attribute signal_desc of signal : std_logic_vector is "The description of the signal";</p>
+<div class="highlight"><pre><span class="k">attribute</span> <span class="n">attribute_name</span><span class="o">:</span> <span class="k">type</span><span class="p">;</span>             <span class="c1">-- attribute declaration</span>
+<span class="k">attribute</span> <span class="n">attribute_name</span> <span class="k">of</span> <span class="n">item</span> <span class="o">:</span> <span class="n">item_class</span> <span class="k">is</span> <span class="n">expression</span><span class="p">;</span> <span class="c1">-- attribute specification</span>
+
+<span class="o">:::</span><span class="n">vhdl</span>
+<span class="k">attribute</span> <span class="n">signal_desc</span> <span class="o">:</span> <span class="kt">String</span><span class="p">;</span>
+<span class="k">signal</span> <span class="n">the_signal</span> <span class="o">:</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">5</span> <span class="n">dowto</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">attribute</span> <span class="n">signal_desc</span> <span class="k">of</span> <span class="k">signal</span> <span class="o">:</span> <span class="kt">std_logic_vector</span> <span class="k">is</span> <span class="s">"The description of the signal"</span><span class="p">;</span>
+</pre></div>
 <p>Now you can write your own VHDL analyzer to pass this information to a document generator!</p>
             </div>
             <!-- /.entry-content -->

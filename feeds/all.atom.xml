@@ -4,7 +4,7 @@
 Some are good, some are bad, but mostly you come across these because some tool fails
 to parse or synthesize the code. Tools are getting better as we report bugs, and vendors
 are indeed improving things, but the VHDL LRM certainly allows for a lot of ambiguity.&lt;/p&gt;
-&lt;h2&gt;1. Generate statements&lt;/h2&gt;
+&lt;h3&gt;1. Generate statements&lt;/h3&gt;
 &lt;p&gt;This is simple, but a lot of people dont know about generate statements even though they are also present in  Verilog.&lt;/p&gt;
 &lt;p&gt;There are two main kinds of generate constructs: the if generate, and the for generate.&lt;/p&gt;
 &lt;p&gt;if-generate statements are greate to rip out unneeded logic based on a feature etc. Dont forget to add the converse generate statement
@@ -24,7 +24,7 @@ or just to assign signal values over a vector.&lt;/p&gt;
     &lt;span class="n"&gt;a_vector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;downto&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;b_array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt; &lt;span class="nc"&gt;g_generate&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;2. Declarations within Generate statements&lt;/h2&gt;
+&lt;h3&gt;2. Declarations within Generate statements&lt;/h3&gt;
 &lt;p&gt;You can also declare signals within the scope of a generate statement. This allows them to not even be defined in the case the generate
 isnt true.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;g_generate_signals&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;FEATURE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;true&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt;
@@ -34,20 +34,21 @@ isnt true.&lt;/p&gt;
         &lt;span class="n"&gt;feature_option&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;derive_feature&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt; &lt;span class="nc"&gt;g_generate_signals&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;3. Optional parameters in functions&lt;/h2&gt;
+&lt;h3&gt;3. Optional parameters in functions&lt;/h3&gt;
 &lt;p&gt;VHDL functions allo optional parameters. I really wouldnt recommend using this unless it is a straight forward use case because some tools
 will definitely choke on this.&lt;/p&gt;
-&lt;h2&gt;4. User Defined Attributes&lt;/h2&gt;
+&lt;h3&gt;4. User Defined Attributes&lt;/h3&gt;
 &lt;p&gt;VHDL supports User Defined Attributes as well. They can be useful are preprocessor arguments for Tools to know what to do with particular symbols.
 The only place I have come across it is to tell emulator tools how to synthesize certain registers (RAMs or Registers). FPGA tools may use them as well.
 Apart from that, I guess you can use them if you want to write your own tool and pass some obscure information to it.&lt;/p&gt;
-&lt;p&gt;:::vhdl
-  attribute attribute_name: type;             -- attribute declaration
-  attribute attribute_name of item : item_class is expression; -- attribute specification&lt;/p&gt;
-&lt;p&gt;:::vhdl
-  attribute signal_desc : String;
-  signal the_signal : std_logic_vector(5 dowto 0);
-  attribute signal_desc of signal : std_logic_vector is "The description of the signal";&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;attribute_name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;             &lt;span class="c1"&gt;-- attribute declaration&lt;/span&gt;
+&lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;attribute_name&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;item_class&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;expression&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;-- attribute specification&lt;/span&gt;
+
+&lt;span class="o"&gt;:::&lt;/span&gt;&lt;span class="n"&gt;vhdl&lt;/span&gt;
+&lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;signal_desc&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;String&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;signal&lt;/span&gt; &lt;span class="n"&gt;the_signal&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;std_logic_vector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;dowto&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;signal_desc&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="k"&gt;signal&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;std_logic_vector&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="s"&gt;"The description of the signal"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now you can write your own VHDL analyzer to pass this information to a document generator!&lt;/p&gt;</summary></entry><entry><title>Practical Use of Types in VHDL</title><link href="/practical-use-of-types-in-vhdl.html" rel="alternate"></link><updated>2016-08-06T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2016-08-06:practical-use-of-types-in-vhdl.html</id><summary type="html">&lt;p&gt;Types and subtypes are widely used in VHDL to organise your code and data.&lt;/p&gt;
 &lt;p&gt;So what prompted me to write about types? A colleague showed me some of his code
 that was using types in a way that I hadnt realized possible before.
