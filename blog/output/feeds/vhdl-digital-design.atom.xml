@@ -44,6 +44,8 @@ Apart from that, I guess you can use them if you want to write your own tool and
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;attribute_name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;             &lt;span class="c1"&gt;-- attribute declaration&lt;/span&gt;
 &lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;attribute_name&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;item_class&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;expression&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;-- attribute specification&lt;/span&gt;
 
+
+
 &lt;span class="o"&gt;:::&lt;/span&gt;&lt;span class="n"&gt;vhdl&lt;/span&gt;
 &lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;signal_desc&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;String&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;signal&lt;/span&gt; &lt;span class="n"&gt;the_signal&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;std_logic_vector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;dowto&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;

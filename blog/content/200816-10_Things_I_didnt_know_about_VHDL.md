@@ -37,8 +37,8 @@ or just to assign signal values over a vector.
 		a_vector(8*(i+1)-1 downto i) <= b_array(i);
 	end generate g_generate;
 
-
-
+  
+  
 
 ### 2. Declarations within Generate statements
 
@@ -69,7 +69,9 @@ Apart from that, I guess you can use them if you want to write your own tool and
 	:::vhdl
 	attribute attribute_name: type;             -- attribute declaration
 	attribute attribute_name of item : item_class is expression; -- attribute specification
-  
+
+
+
 	:::vhdl
 	attribute signal_desc : String;
 	signal the_signal : std_logic_vector(5 dowto 0);
