@@ -41,13 +41,11 @@ will definitely choke on this.&lt;/p&gt;
 &lt;p&gt;VHDL supports User Defined Attributes as well. They can be useful are preprocessor arguments for Tools to know what to do with particular symbols.
 The only place I have come across it is to tell emulator tools how to synthesize certain registers (RAMs or Registers). FPGA tools may use them as well.
 Apart from that, I guess you can use them if you want to write your own tool and pass some obscure information to it.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;attribute_name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;             &lt;span class="c1"&gt;-- attribute declaration&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;attribute_name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;                              &lt;span class="c1"&gt;-- attribute declaration&lt;/span&gt;
 &lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;attribute_name&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;item_class&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;expression&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;-- attribute specification&lt;/span&gt;
-
-
-
-&lt;span class="o"&gt;:::&lt;/span&gt;&lt;span class="n"&gt;vhdl&lt;/span&gt;
-&lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;signal_desc&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;String&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;signal_desc&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;String&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;signal&lt;/span&gt; &lt;span class="n"&gt;the_signal&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;std_logic_vector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;dowto&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="k"&gt;attribute&lt;/span&gt; &lt;span class="n"&gt;signal_desc&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="k"&gt;signal&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;std_logic_vector&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="s"&gt;"The description of the signal"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;

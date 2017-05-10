@@ -147,13 +147,11 @@ will definitely choke on this.</p>
 <p>VHDL supports User Defined Attributes as well. They can be useful are preprocessor arguments for Tools to know what to do with particular symbols.
 The only place I have come across it is to tell emulator tools how to synthesize certain registers (RAMs or Registers). FPGA tools may use them as well.
 Apart from that, I guess you can use them if you want to write your own tool and pass some obscure information to it.</p>
-<div class="highlight"><pre><span class="k">attribute</span> <span class="n">attribute_name</span><span class="o">:</span> <span class="k">type</span><span class="p">;</span>             <span class="c1">-- attribute declaration</span>
+<div class="highlight"><pre><span class="k">attribute</span> <span class="n">attribute_name</span><span class="o">:</span> <span class="k">type</span><span class="p">;</span>                              <span class="c1">-- attribute declaration</span>
 <span class="k">attribute</span> <span class="n">attribute_name</span> <span class="k">of</span> <span class="n">item</span> <span class="o">:</span> <span class="n">item_class</span> <span class="k">is</span> <span class="n">expression</span><span class="p">;</span> <span class="c1">-- attribute specification</span>
-
-
-
-<span class="o">:::</span><span class="n">vhdl</span>
-<span class="k">attribute</span> <span class="n">signal_desc</span> <span class="o">:</span> <span class="kt">String</span><span class="p">;</span>
+</pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span class="k">attribute</span> <span class="n">signal_desc</span> <span class="o">:</span> <span class="kt">String</span><span class="p">;</span>
 <span class="k">signal</span> <span class="n">the_signal</span> <span class="o">:</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">5</span> <span class="n">dowto</span> <span class="mi">0</span><span class="p">);</span>
 <span class="k">attribute</span> <span class="n">signal_desc</span> <span class="k">of</span> <span class="k">signal</span> <span class="o">:</span> <span class="kt">std_logic_vector</span> <span class="k">is</span> <span class="s">"The description of the signal"</span><span class="p">;</span>
 </pre></div>

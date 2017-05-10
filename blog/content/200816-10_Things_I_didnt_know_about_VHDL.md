@@ -67,10 +67,10 @@ The only place I have come across it is to tell emulator tools how to synthesize
 Apart from that, I guess you can use them if you want to write your own tool and pass some obscure information to it.
 
 	:::vhdl
-	attribute attribute_name: type;             -- attribute declaration
+	attribute attribute_name: type;                              -- attribute declaration
 	attribute attribute_name of item : item_class is expression; -- attribute specification
 
-
+Example:
 
 	:::vhdl
 	attribute signal_desc : String;
