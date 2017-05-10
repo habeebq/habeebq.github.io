@@ -16,7 +16,7 @@ A type is a VHDL construct provided by the Language Definition.
 
 A subtype is derrived from a type with additional constraints.
 
->> However, subtypes are only safer in simulation; in real hardware, there are no boundary checks
+> However, subtypes are only safer in simulation; in real hardware, there are no boundary checks
 
 
 # Examples of Types
@@ -44,13 +44,14 @@ These types are frequently used in state machines.
 The synthesis tools have the option to synthesise this as they want to optimize timing/area/power.
 They can be encoded as a binary vector, or one-hot encoded.
 
+Enum types can be cleverly used to make code a lot more readable and they can be used to replace integers, or as a pre-defined hash table.
 
 # Ranged Types/Subtypes: Integer/Natural 
 A range specifies a subset of values of a scalar type.
 
 A range constraint is compatible with a subtype if each bound of the range belongs to the subtype or if the range constraint defines a null range.
 
-(source)[http://rti.etf.bg.ac.rs/rti/ri5rvl/tutorial/TUTORIAL/IEEE/HTML/1076_3.HTM]
+[source](http://rti.etf.bg.ac.rs/rti/ri5rvl/tutorial/TUTORIAL/IEEE/HTML/1076_3.HTM)
 
 
 On inital searching for a way to define a range type, for some reason I came up with nothing.
@@ -61,11 +62,11 @@ So lets say you need to pack fields into a big vector.
 
 At some point you need to slice it to extract elements and put in elements.
 
-Method one:
-Define FIELD0_MSB, FIELD0_LSB
+##### Method one:
+Define FIELD0_MSB, FIELD0_LSB and so on for each field in the vector.
 The problem with this is inserted or removing a new field requires updating the table of all the fields.
 
-Method two:
+##### Method two:
 Define FIELD_OFFSET, FIELD_SIZE
 also  FIELD1_OFFSET = FIELD0_OFFSET + FIELD0_SIZE
 This allows you to easily insert/remove fields.
@@ -77,36 +78,43 @@ vector(FIELD_TABLE(FIELD_ELEMENT).OFFSET + FIELD_TABLE(FIELD_ELEMENT).SIZE downt
 
 Also, my simulation tools didnt like this, so I had to recode it as subtypes.
 
-Method 3: Using subtypes
+##### Method 3: Using subtypes
 
-Define:
-subtype field0 is std_logic_vector(13 downto 5);
-vector(field0'RANGE);
+Define
+
+	:::vhdl
+	subtype field0 is std_logic_vector(13 downto 5);
+	signal myvector : std_logic_vector(field0'RANGE);
 
 However for the subtype you still need to define a table of MSBS and LSBS.
 
-Method 4: Using range type
+##### Method 4: Using range type
 This is the one that eluded me and I am trying to get to grips with this one.
 
-subtype FIELD0_RANGE is integer range 13 downto 5;
-vector(FIELD0_RANGE);
+	:::vhdl
+	subtype FIELD0_RANGE is integer range 13 downto 5;
+	signal myvector : std_logic_vector(FIELD0_RANGE);
 
-So what makes this counter-intuitive?
+Personally I found this a bit counter-intuitive, until I accepted that an integer type is just a range type. And there is a difference between an integer type and an assigned integer value which takes up one value from the range of values in the integer type.
 
-`FIELD0_RANGE` is just a constrained integer, right?
+`FIELD0_RANGE` is just a constrained integer type, right?
 
 signal my_int : FIELD0_RANGE := 8;
 
 is a single value, right?
 
-However we are not using an instance of that range, we are using the definition of it.
+However we are not using an instance of that range, we are using the type definition of it.
 
-In method 3, we saw that std_logic_vector has an attribute `'RANGE` that returns a range.However, subtypes are only safer in simulation; in real hardware, there are no boundary checks 
+The type definition itself is actually a range, whereas the signal is a single value from that range.
 
-Ok, how does this work for enums?
+In method 3, we saw that std_logic_vector has an attribute `'RANGE` that returns a range. 
+
+What is interesting is how you can interchange between a type and a value (while we could consider the value just another constrained type).
+
+How does this work for enums?
 
 What is the difference between `vector(ENUM_TYPE)` and `vector(ENUM_VALUE)`?
-Starts to make sense now?
+There is none. Starts to make sense now?
 
 How about arrays?
 `array(ENUM_TYPE)` assigns a number of values at the same time
@@ -115,8 +123,8 @@ How about arrays?
 like
 
     :::VHDL
-    vector <= (ENUM_TYPE  => "0", ENUM_VALUE => "0");
-    vector <= (5 downto 1 => "0", 0 => "0");
+    vector <= (ENUM_TYPE  => "0",     ENUM_VALUE => "0");
+    vector <= (5 downto 1 => "00000", 0 => "0");
 
 
 There is something similar for records as well

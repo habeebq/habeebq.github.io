@@ -114,9 +114,7 @@ was something I was meaning to do for a long time, but never had the motivation 
 <p>A type is a VHDL construct provided by the Language Definition.</p>
 <p>A subtype is derrived from a type with additional constraints.</p>
 <blockquote>
-<blockquote>
 <p>However, subtypes are only safer in simulation; in real hardware, there are no boundary checks</p>
-</blockquote>
 </blockquote>
 <h1>Examples of Types</h1>
 <div class="highlight"><pre><span class="k">type</span> <span class="n">enum_type</span> <span class="k">is</span> <span class="p">(</span><span class="n">STATE_IDLE</span><span class="p">,</span>
@@ -137,49 +135,54 @@ emulator and FPGA can be tricky, as you need to know the mapping of an enum to a
 <p>These types are frequently used in state machines.
 The synthesis tools have the option to synthesise this as they want to optimize timing/area/power.
 They can be encoded as a binary vector, or one-hot encoded.</p>
+<p>Enum types can be cleverly used to make code a lot more readable and they can be used to replace integers, or as a pre-defined hash table.</p>
 <h1>Ranged Types/Subtypes: Integer/Natural</h1>
 <p>A range specifies a subset of values of a scalar type.</p>
 <p>A range constraint is compatible with a subtype if each bound of the range belongs to the subtype or if the range constraint defines a null range.</p>
-<p>(source)[http://rti.etf.bg.ac.rs/rti/ri5rvl/tutorial/TUTORIAL/IEEE/HTML/1076_3.HTM]</p>
+<p><a href="http://rti.etf.bg.ac.rs/rti/ri5rvl/tutorial/TUTORIAL/IEEE/HTML/1076_3.HTM">source</a></p>
 <p>On inital searching for a way to define a range type, for some reason I came up with nothing.</p>
 <p>Until a colleague mentioned this to me, and since then I am dissapointed I didnt know about this before.</p>
 <p>So lets say you need to pack fields into a big vector.</p>
 <p>At some point you need to slice it to extract elements and put in elements.</p>
-<p>Method one:
-Define FIELD0_MSB, FIELD0_LSB
+<h5>Method one:</h5>
+<p>Define FIELD0_MSB, FIELD0_LSB and so on for each field in the vector.
 The problem with this is inserted or removing a new field requires updating the table of all the fields.</p>
-<p>Method two:
-Define FIELD_OFFSET, FIELD_SIZE
+<h5>Method two:</h5>
+<p>Define FIELD_OFFSET, FIELD_SIZE
 also  FIELD1_OFFSET = FIELD0_OFFSET + FIELD0_SIZE
 This allows you to easily insert/remove fields.
 However this method is still very clunky and requires function to pack/unpack items.</p>
 <p>It still doesnt allow easy slicing which has to be done:</p>
 <p>vector(FIELD_TABLE(FIELD_ELEMENT).OFFSET + FIELD_TABLE(FIELD_ELEMENT).SIZE downto FIELD_TABLE(FIELD_ELEMENT).OFFSET);</p>
 <p>Also, my simulation tools didnt like this, so I had to recode it as subtypes.</p>
-<p>Method 3: Using subtypes</p>
-<p>Define:
-subtype field0 is std_logic_vector(13 downto 5);
-vector(field0'RANGE);</p>
+<h5>Method 3: Using subtypes</h5>
+<p>Define</p>
+<div class="highlight"><pre><span class="k">subtype</span> <span class="n">field0</span> <span class="k">is</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">13</span> <span class="k">downto</span> <span class="mi">5</span><span class="p">);</span>
+<span class="k">signal</span> <span class="n">myvector</span> <span class="o">:</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="n">field0</span><span class="na">'RANGE</span><span class="p">);</span>
+</pre></div>
 <p>However for the subtype you still need to define a table of MSBS and LSBS.</p>
-<p>Method 4: Using range type
-This is the one that eluded me and I am trying to get to grips with this one.</p>
-<p>subtype FIELD0_RANGE is integer range 13 downto 5;
-vector(FIELD0_RANGE);</p>
-<p>So what makes this counter-intuitive?</p>
-<p><code>FIELD0_RANGE</code> is just a constrained integer, right?</p>
+<h5>Method 4: Using range type</h5>
+<p>This is the one that eluded me and I am trying to get to grips with this one.</p>
+<div class="highlight"><pre><span class="k">subtype</span> <span class="n">FIELD0_RANGE</span> <span class="k">is</span> <span class="kt">integer</span> <span class="k">range</span> <span class="mi">13</span> <span class="k">downto</span> <span class="mi">5</span><span class="p">;</span>
+<span class="k">signal</span> <span class="n">myvector</span> <span class="o">:</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="n">FIELD0_RANGE</span><span class="p">);</span>
+</pre></div>
+<p>Personally I found this a bit counter-intuitive, until I accepted that an integer type is just a range type. And there is a difference between an integer type and an assigned integer value which takes up one value from the range of values in the integer type.</p>
+<p><code>FIELD0_RANGE</code> is just a constrained integer type, right?</p>
 <p>signal my_int : FIELD0_RANGE := 8;</p>
 <p>is a single value, right?</p>
-<p>However we are not using an instance of that range, we are using the definition of it.</p>
-<p>In method 3, we saw that std_logic_vector has an attribute <code>'RANGE</code> that returns a range.However, subtypes are only safer in simulation; in real hardware, there are no boundary checks </p>
-<p>Ok, how does this work for enums?</p>
+<p>However we are not using an instance of that range, we are using the type definition of it.</p>
+<p>The type definition itself is actually a range, whereas the signal is a single value from that range.</p>
+<p>In method 3, we saw that std_logic_vector has an attribute <code>'RANGE</code> that returns a range. </p>
+<p>What is interesting is how you can interchange between a type and a value (while we could consider the value just another constrained type).</p>
+<p>How does this work for enums?</p>
 <p>What is the difference between <code>vector(ENUM_TYPE)</code> and <code>vector(ENUM_VALUE)</code>?
-Starts to make sense now?</p>
+There is none. Starts to make sense now?</p>
 <p>How about arrays?
 <code>array(ENUM_TYPE)</code> assigns a number of values at the same time
 <code>array(ENUM_VALUE)</code> assigns one value at a time.</p>
 <p>like</p>
-<div class="highlight"><pre><span class="n">vector</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">ENUM_TYPE</span>  <span class="o">=&gt;</span> <span class="s">"0", ENUM_VALUE =&gt; "0"</span><span class="p">);</span>
-<span class="n">vector</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="mi">5</span> <span class="k">downto</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s">"0", 0 =&gt; "0"</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">vector</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">ENUM_TYPE</span>  <span class="o">=&gt;</span> <span class="s">"0",     ENUM_VALUE =&gt; "0"</span><span class="p">);</span>
+<span class="n">vector</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="mi">5</span> <span class="k">downto</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s">"00000", 0 =&gt; "0"</span><span class="p">);</span>
 </pre></div>
 <p>There is something similar for records as well</p>
 <div class="highlight"><pre>record &lt;= (OFFSET =&gt; "000", SIZE =&gt; "001");

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>A few Things I didnt know about VHDL - habeebq</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/a-few-things-i-didnt-know-about-vhdl.html">
+
+        <meta name="author" content="habeebq" />
+        <meta name="description" content="I know the title sounds like a Buzzfeed article...and number 7 will blow your mind! The more I read code, the more I see interesting ways people write code. Some are good, some are bad, but mostly you come across these because some tool fails to parse or synthesize ..." />
+
+        <meta property="og:site_name" content="habeebq" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="A few Things I didnt know about VHDL"/>
+        <meta property="og:url" content="/a-few-things-i-didnt-know-about-vhdl.html"/>
+        <meta property="og:description" content="I know the title sounds like a Buzzfeed article...and number 7 will blow your mind! The more I read code, the more I see interesting ways people write code. Some are good, some are bad, but mostly you come across these because some tool fails to parse or synthesize ..."/>
+        <meta property="article:published_time" content="2016-08-20" />
+            <meta property="article:section" content="VHDL, Digital Design" />
+            <meta property="article:author" content="habeebq" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.readable.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link href="/theme/css/custom.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="habeebq ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+		<b>
+habeebq		</b>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">blog</span></a></li>
+
+                    <li><a href="/pages/projects.html"> <i class="fa fa-code-fork"></i><span class="icon-label">projects</span></a></li>
+                    <li><a href="/pages/about.html"> <i class="fa fa-user"></i><span class="icon-label">whoami</span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/a-few-things-i-didnt-know-about-vhdl.html"
+                       rel="bookmark"
+                       title="Permalink to A few Things I didnt know about VHDL"
+		       class="page-header">
+                        A few Things I didnt know about VHDL
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+		  <div class="well well-sm">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-08-20T00:00:00+02:00"> Sat 20 August 2016</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="/author/habeebq.html"><i class="fa fa-user"></i> habeebq</a>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/vhdl-digital-design.html">VHDL, Digital Design</a>
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+		  </div>
+                </div>
+                <p>I know the title sounds like a Buzzfeed article...and number 7 will blow your mind!</p>
+<p>The more I read code, the more I see interesting ways people write code.
+Some are good, some are bad, but mostly you come across these because some tool fails
+to parse or synthesize the code. Tools are getting better as we report bugs, and vendors
+are indeed improving things, but the VHDL LRM certainly allows for a lot of ambiguity.</p>
+<ol>
+<li>Generate statements</li>
+</ol>
+<p>This is simple, but a lot of people dont know about generate statements even though they are also present in  Verilog.</p>
+<p>There are two main kinds of generate constructs: the if generate, and the for generate.</p>
+<p>if-generate statements are greate to rip out unneeded logic based on a feature etc. Dont forget to add the converse generate statement
+to assign signals for both cases.</p>
+<div class="highlight"><pre><span class="n">g_generate</span> <span class="o">:</span> <span class="k">if</span> <span class="n">FEATURE</span> <span class="o">=</span> <span class="n">true</span> <span class="k">generate</span>
+    <span class="n">inst_A</span> <span class="o">:</span> <span class="n">moduleA</span> <span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">);</span>
+<span class="k">end</span> <span class="k">generate</span> <span class="nc">g_generate</span><span class="p">;</span>
+
+<span class="n">g_no_generate</span> <span class="o">:</span> <span class="k">if</span> <span class="n">FEATURE</span> <span class="o">=</span> <span class="n">false</span> <span class="k">generate</span>
+    <span class="n">output</span> <span class="o">&lt;=</span> <span class="n">input</span><span class="p">;</span>
+<span class="k">end</span> <span class="k">generate</span> <span class="nc">g_no_generate</span><span class="p">;</span>
+</pre></div>
+<p>for-generate statements are just unrolling loops. They can be used to instantiate a variable (at compile) number of instances
+or just to assign signal values over a vector.</p>
+<div class="highlight"><pre><span class="n">g_generate</span> <span class="o">:</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">7</span> <span class="k">generate</span>
+    <span class="n">inst_A</span> <span class="o">:</span> <span class="n">moduleA</span><span class="p">(</span><span class="n">input</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">output</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+    <span class="n">a_vector</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="k">downto</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">b_array</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="k">end</span> <span class="k">generate</span> <span class="nc">g_generate</span><span class="p">;</span>
+</pre></div>
+<ol>
+<li>Declarations within Generate statements</li>
+</ol>
+<p>You can also declare signals within the scope of a generate statement. This allows them to not even be defined in the case the generate
+isnt true.</p>
+<div class="highlight"><pre><span class="n">g_generate_signals</span> <span class="o">:</span> <span class="k">if</span> <span class="n">FEATURE</span> <span class="o">=</span> <span class="n">true</span> <span class="k">generate</span>
+    <span class="k">signal</span> <span class="n">feature_option</span>   <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="k">signal</span> <span class="n">feature_option_2</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="k">begin</span>
+        <span class="n">feature_option</span> <span class="o">&lt;=</span> <span class="n">derive_feature</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
+<span class="k">end</span> <span class="k">generate</span> <span class="nc">g_generate_signals</span><span class="p">;</span>
+</pre></div>
+<ol>
+<li>Optional parameters in functions</li>
+</ol>
+<p>VHDL functions allo optional parameters. I really wouldnt recommend using this unless it is a straight forward use case because some tools
+will definitely choke on this.</p>
+<ol>
+<li>User Defined Attributes</li>
+</ol>
+<p>VHDL supports User Defined Attributes as well. They can be useful are preprocessor arguments for Tools to know what to do with particular symbols.
+The only place I have come across it is to tell emulator tools how to synthesize certain registers (RAMs or Registers). FPGA tools may use them as well.
+Apart from that, I guess you can use them if you want to write your own tool and pass some obscure information to it.</p>
+<p>:::vhdl
+  attribute attribute_name: type;             -- attribute declaration
+  attribute attribute_name of item : item_class is expression; -- attribute specification</p>
+<p>:::vhdl
+  attribute signal_desc : String;
+  signal the_signal : std_logic_vector(5 dowto 0);
+  attribute signal_desc of signal : std_logic_vector is "The description of the signal";</p>
+<p>Now you can write your own VHDL analyzer to pass this information to a document generator!</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 habeebq
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

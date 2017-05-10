@@ -114,12 +114,12 @@ First major job was setting up Spyglass Clock domain crossing flow. I read throu
 
 Next was emulator bring up. I had to modify some build scripts and suggest RTL coding style changes to appease the emulator compiler tools. I have more outstanding work I would like to do on this when i have the time.
 
-*JTAG tests integration *
+###### JTAG tests integration
 
 JTAG tests came from the microprocessor team that supply the processor inside the GPU.
 The tests were made to run on their testbench, and I had to create an automated way to port their tests to our GPU testbench. This included some minor TB changes, and an algorithm to map the registers to our TB registers whilst still keeping them sane.
 
-* Name server *
+######  Name server
 
 We have a regression system that creates a webserver as the primary interface for the user and runs tests in the background.
 Occasionally the link to this server (which is dynamically generated) gets lost in the logs or requires a lot of clicks to reach on Jenkins.

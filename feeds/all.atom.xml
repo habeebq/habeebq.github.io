@@ -1,20 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>habeebq</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-20T00:00:00+02:00</updated><entry><title>10 Things I didnt know about VHDL</title><link href="/10-things-i-didnt-know-about-vhdl.html" rel="alternate"></link><updated>2016-08-20T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2016-08-20:10-things-i-didnt-know-about-vhdl.html</id><summary type="html">&lt;p&gt;I know the title sounds like a Buzzfeed article...and number 7 will blow your mind!&lt;/p&gt;
-&lt;p&gt;But yeah, the more I read code, the more I see interesting ways people write code.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>habeebq</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-20T00:00:00+02:00</updated><entry><title>A few Things I didnt know about VHDL</title><link href="/a-few-things-i-didnt-know-about-vhdl.html" rel="alternate"></link><updated>2016-08-20T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2016-08-20:a-few-things-i-didnt-know-about-vhdl.html</id><summary type="html">&lt;p&gt;I know the title sounds like a Buzzfeed article...and number 7 will blow your mind!&lt;/p&gt;
+&lt;p&gt;The more I read code, the more I see interesting ways people write code.
 Some are good, some are bad, but mostly you come across these because some tool fails
 to parse or synthesize the code. Tools are getting better as we report bugs, and vendors
 are indeed improving things, but the VHDL LRM certainly allows for a lot of ambiguity.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Generate statements&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Declarations within Generate statements&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Optional parameters in functions&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>Practical Use of Types in VHDL</title><link href="/practical-use-of-types-in-vhdl.html" rel="alternate"></link><updated>2016-08-06T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2016-08-06:practical-use-of-types-in-vhdl.html</id><summary type="html">&lt;p&gt;Types and subtypes are widely used in VHDL to organise your code and data.&lt;/p&gt;
+&lt;li&gt;Generate statements&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This is simple, but a lot of people dont know about generate statements even though they are also present in  Verilog.&lt;/p&gt;
+&lt;p&gt;There are two main kinds of generate constructs: the if generate, and the for generate.&lt;/p&gt;
+&lt;p&gt;if-generate statements are greate to rip out unneeded logic based on a feature etc. Dont forget to add the converse generate statement
+to assign signals for both cases.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;g_generate&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;FEATURE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;true&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt;
+    &lt;span class="n"&gt;inst_A&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;moduleA&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt; &lt;span class="nc"&gt;g_generate&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;g_no_generate&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;FEATURE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;false&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt;
+    &lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt; &lt;span class="nc"&gt;g_no_generate&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;for-generate statements are just unrolling loops. They can be used to instantiate a variable (at compile) number of instances
+or just to assign signal values over a vector.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;g_generate&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt;
+    &lt;span class="n"&gt;inst_A&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;moduleA&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="n"&gt;a_vector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;downto&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;b_array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt; &lt;span class="nc"&gt;g_generate&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Declarations within Generate statements&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can also declare signals within the scope of a generate statement. This allows them to not even be defined in the case the generate
+isnt true.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;g_generate_signals&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;FEATURE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;true&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt;
+    &lt;span class="k"&gt;signal&lt;/span&gt; &lt;span class="n"&gt;feature_option&lt;/span&gt;   &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;std_logic&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;signal&lt;/span&gt; &lt;span class="n"&gt;feature_option_2&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;std_logic&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;begin&lt;/span&gt;
+        &lt;span class="n"&gt;feature_option&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;derive_feature&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt; &lt;span class="nc"&gt;g_generate_signals&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Optional parameters in functions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;VHDL functions allo optional parameters. I really wouldnt recommend using this unless it is a straight forward use case because some tools
+will definitely choke on this.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;User Defined Attributes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;VHDL supports User Defined Attributes as well. They can be useful are preprocessor arguments for Tools to know what to do with particular symbols.
+The only place I have come across it is to tell emulator tools how to synthesize certain registers (RAMs or Registers). FPGA tools may use them as well.
+Apart from that, I guess you can use them if you want to write your own tool and pass some obscure information to it.&lt;/p&gt;
+&lt;p&gt;:::vhdl
+  attribute attribute_name: type;             -- attribute declaration
+  attribute attribute_name of item : item_class is expression; -- attribute specification&lt;/p&gt;
+&lt;p&gt;:::vhdl
+  attribute signal_desc : String;
+  signal the_signal : std_logic_vector(5 dowto 0);
+  attribute signal_desc of signal : std_logic_vector is "The description of the signal";&lt;/p&gt;
+&lt;p&gt;Now you can write your own VHDL analyzer to pass this information to a document generator!&lt;/p&gt;</summary></entry><entry><title>Practical Use of Types in VHDL</title><link href="/practical-use-of-types-in-vhdl.html" rel="alternate"></link><updated>2016-08-06T00:00:00+02:00</updated><author><name>habeebq</name></author><id>tag:,2016-08-06:practical-use-of-types-in-vhdl.html</id><summary type="html">&lt;p&gt;Types and subtypes are widely used in VHDL to organise your code and data.&lt;/p&gt;
 &lt;p&gt;So what prompted me to write about types? A colleague showed me some of his code
 that was using types in a way that I hadnt realized possible before.
 At that point I realized it was time for me to re-visit the core concepts of types. This
@@ -23,9 +65,7 @@ was something I was meaning to do for a long time, but never had the motivation 
 &lt;p&gt;A type is a VHDL construct provided by the Language Definition.&lt;/p&gt;
 &lt;p&gt;A subtype is derrived from a type with additional constraints.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;blockquote&gt;
 &lt;p&gt;However, subtypes are only safer in simulation; in real hardware, there are no boundary checks&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;h1&gt;Examples of Types&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="n"&gt;enum_type&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;STATE_IDLE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -46,49 +86,54 @@ emulator and FPGA can be tricky, as you need to know the mapping of an enum to a
 &lt;p&gt;These types are frequently used in state machines.
 The synthesis tools have the option to synthesise this as they want to optimize timing/area/power.
 They can be encoded as a binary vector, or one-hot encoded.&lt;/p&gt;
+&lt;p&gt;Enum types can be cleverly used to make code a lot more readable and they can be used to replace integers, or as a pre-defined hash table.&lt;/p&gt;
 &lt;h1&gt;Ranged Types/Subtypes: Integer/Natural&lt;/h1&gt;
 &lt;p&gt;A range specifies a subset of values of a scalar type.&lt;/p&gt;
 &lt;p&gt;A range constraint is compatible with a subtype if each bound of the range belongs to the subtype or if the range constraint defines a null range.&lt;/p&gt;
-&lt;p&gt;(source)[http://rti.etf.bg.ac.rs/rti/ri5rvl/tutorial/TUTORIAL/IEEE/HTML/1076_3.HTM]&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://rti.etf.bg.ac.rs/rti/ri5rvl/tutorial/TUTORIAL/IEEE/HTML/1076_3.HTM"&gt;source&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;On inital searching for a way to define a range type, for some reason I came up with nothing.&lt;/p&gt;
 &lt;p&gt;Until a colleague mentioned this to me, and since then I am dissapointed I didnt know about this before.&lt;/p&gt;
 &lt;p&gt;So lets say you need to pack fields into a big vector.&lt;/p&gt;
 &lt;p&gt;At some point you need to slice it to extract elements and put in elements.&lt;/p&gt;
-&lt;p&gt;Method one:
-Define FIELD0_MSB, FIELD0_LSB
+&lt;h5&gt;Method one:&lt;/h5&gt;
+&lt;p&gt;Define FIELD0_MSB, FIELD0_LSB and so on for each field in the vector.
 The problem with this is inserted or removing a new field requires updating the table of all the fields.&lt;/p&gt;
-&lt;p&gt;Method two:
-Define FIELD_OFFSET, FIELD_SIZE
+&lt;h5&gt;Method two:&lt;/h5&gt;
+&lt;p&gt;Define FIELD_OFFSET, FIELD_SIZE
 also  FIELD1_OFFSET = FIELD0_OFFSET + FIELD0_SIZE
 This allows you to easily insert/remove fields.
 However this method is still very clunky and requires function to pack/unpack items.&lt;/p&gt;
 &lt;p&gt;It still doesnt allow easy slicing which has to be done:&lt;/p&gt;
 &lt;p&gt;vector(FIELD_TABLE(FIELD_ELEMENT).OFFSET + FIELD_TABLE(FIELD_ELEMENT).SIZE downto FIELD_TABLE(FIELD_ELEMENT).OFFSET);&lt;/p&gt;
 &lt;p&gt;Also, my simulation tools didnt like this, so I had to recode it as subtypes.&lt;/p&gt;
-&lt;p&gt;Method 3: Using subtypes&lt;/p&gt;
-&lt;p&gt;Define:
-subtype field0 is std_logic_vector(13 downto 5);
-vector(field0'RANGE);&lt;/p&gt;
+&lt;h5&gt;Method 3: Using subtypes&lt;/h5&gt;
+&lt;p&gt;Define&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;subtype&lt;/span&gt; &lt;span class="n"&gt;field0&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="kt"&gt;std_logic_vector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt; &lt;span class="k"&gt;downto&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;signal&lt;/span&gt; &lt;span class="n"&gt;myvector&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;std_logic_vector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;field0&lt;/span&gt;&lt;span class="na"&gt;'RANGE&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;However for the subtype you still need to define a table of MSBS and LSBS.&lt;/p&gt;
-&lt;p&gt;Method 4: Using range type
-This is the one that eluded me and I am trying to get to grips with this one.&lt;/p&gt;
-&lt;p&gt;subtype FIELD0_RANGE is integer range 13 downto 5;
-vector(FIELD0_RANGE);&lt;/p&gt;
-&lt;p&gt;So what makes this counter-intuitive?&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;FIELD0_RANGE&lt;/code&gt; is just a constrained integer, right?&lt;/p&gt;
+&lt;h5&gt;Method 4: Using range type&lt;/h5&gt;
+&lt;p&gt;This is the one that eluded me and I am trying to get to grips with this one.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;subtype&lt;/span&gt; &lt;span class="n"&gt;FIELD0_RANGE&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="kt"&gt;integer&lt;/span&gt; &lt;span class="k"&gt;range&lt;/span&gt; &lt;span class="mi"&gt;13&lt;/span&gt; &lt;span class="k"&gt;downto&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;signal&lt;/span&gt; &lt;span class="n"&gt;myvector&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;std_logic_vector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;FIELD0_RANGE&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Personally I found this a bit counter-intuitive, until I accepted that an integer type is just a range type. And there is a difference between an integer type and an assigned integer value which takes up one value from the range of values in the integer type.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;FIELD0_RANGE&lt;/code&gt; is just a constrained integer type, right?&lt;/p&gt;
 &lt;p&gt;signal my_int : FIELD0_RANGE := 8;&lt;/p&gt;
 &lt;p&gt;is a single value, right?&lt;/p&gt;
-&lt;p&gt;However we are not using an instance of that range, we are using the definition of it.&lt;/p&gt;
-&lt;p&gt;In method 3, we saw that std_logic_vector has an attribute &lt;code&gt;'RANGE&lt;/code&gt; that returns a range.However, subtypes are only safer in simulation; in real hardware, there are no boundary checks &lt;/p&gt;
-&lt;p&gt;Ok, how does this work for enums?&lt;/p&gt;
+&lt;p&gt;However we are not using an instance of that range, we are using the type definition of it.&lt;/p&gt;
+&lt;p&gt;The type definition itself is actually a range, whereas the signal is a single value from that range.&lt;/p&gt;
+&lt;p&gt;In method 3, we saw that std_logic_vector has an attribute &lt;code&gt;'RANGE&lt;/code&gt; that returns a range. &lt;/p&gt;
+&lt;p&gt;What is interesting is how you can interchange between a type and a value (while we could consider the value just another constrained type).&lt;/p&gt;
+&lt;p&gt;How does this work for enums?&lt;/p&gt;
 &lt;p&gt;What is the difference between &lt;code&gt;vector(ENUM_TYPE)&lt;/code&gt; and &lt;code&gt;vector(ENUM_VALUE)&lt;/code&gt;?
-Starts to make sense now?&lt;/p&gt;
+There is none. Starts to make sense now?&lt;/p&gt;
 &lt;p&gt;How about arrays?
 &lt;code&gt;array(ENUM_TYPE)&lt;/code&gt; assigns a number of values at the same time
 &lt;code&gt;array(ENUM_VALUE)&lt;/code&gt; assigns one value at a time.&lt;/p&gt;
 &lt;p&gt;like&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;vector&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ENUM_TYPE&lt;/span&gt;  &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;"0", ENUM_VALUE =&amp;gt; "0"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;vector&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="k"&gt;downto&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;"0", 0 =&amp;gt; "0"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;vector&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ENUM_TYPE&lt;/span&gt;  &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;"0",     ENUM_VALUE =&amp;gt; "0"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;vector&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="k"&gt;downto&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;"00000", 0 =&amp;gt; "0"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;There is something similar for records as well&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;record &amp;lt;= (OFFSET =&amp;gt; "000", SIZE =&amp;gt; "001");
