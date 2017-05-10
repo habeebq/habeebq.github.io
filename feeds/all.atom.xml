@@ -4,9 +4,7 @@
 Some are good, some are bad, but mostly you come across these because some tool fails
 to parse or synthesize the code. Tools are getting better as we report bugs, and vendors
 are indeed improving things, but the VHDL LRM certainly allows for a lot of ambiguity.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Generate statements&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2&gt;1. Generate statements&lt;/h2&gt;
 &lt;p&gt;This is simple, but a lot of people dont know about generate statements even though they are also present in  Verilog.&lt;/p&gt;
 &lt;p&gt;There are two main kinds of generate constructs: the if generate, and the for generate.&lt;/p&gt;
 &lt;p&gt;if-generate statements are greate to rip out unneeded logic based on a feature etc. Dont forget to add the converse generate statement
@@ -26,9 +24,7 @@ or just to assign signal values over a vector.&lt;/p&gt;
     &lt;span class="n"&gt;a_vector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;downto&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;b_array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt; &lt;span class="nc"&gt;g_generate&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;Declarations within Generate statements&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2&gt;2. Declarations within Generate statements&lt;/h2&gt;
 &lt;p&gt;You can also declare signals within the scope of a generate statement. This allows them to not even be defined in the case the generate
 isnt true.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;g_generate_signals&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;FEATURE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;true&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt;
@@ -38,14 +34,10 @@ isnt true.&lt;/p&gt;
         &lt;span class="n"&gt;feature_option&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;derive_feature&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="k"&gt;generate&lt;/span&gt; &lt;span class="nc"&gt;g_generate_signals&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;Optional parameters in functions&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2&gt;3. Optional parameters in functions&lt;/h2&gt;
 &lt;p&gt;VHDL functions allo optional parameters. I really wouldnt recommend using this unless it is a straight forward use case because some tools
 will definitely choke on this.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;User Defined Attributes&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2&gt;4. User Defined Attributes&lt;/h2&gt;
 &lt;p&gt;VHDL supports User Defined Attributes as well. They can be useful are preprocessor arguments for Tools to know what to do with particular symbols.
 The only place I have come across it is to tell emulator tools how to synthesize certain registers (RAMs or Registers). FPGA tools may use them as well.
 Apart from that, I guess you can use them if you want to write your own tool and pass some obscure information to it.&lt;/p&gt;
